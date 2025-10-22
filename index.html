@@ -179,11 +179,11 @@
         <h2>Education</h2>
         <div class="education-item">
             <h3>Southern University of Science and Technology (SUSTech)-Automation</h3>
-            <p class="date">2023.8 - now p>
+            <p class="date">2023.8 - now   </p>
             <ul>
-                <li>GPA: 3.86/4.0 </li>
-                <li>Major curriculum: Optimal Control and Estimation,Data Structure and Algorithm Analysis...</li>
-                <li>Honor: Scholorship...</li>
+                <li>GPA: 3.86/4.0(1/32) </li>
+                <li>Major Interest:Locomotion, Reinforcement learning, Imitation learning</li>
+                <li>Honor: First Prize Scholorship(2023-2024)</li>
             </ul>
         </div>
     </section>
@@ -193,11 +193,12 @@
         
         <div class="project-item">
             <h3> Desktop Cleaning by Robotic Arm via 3D Diffusion Policy</h3>
-            <p class="date">2025.2 - 2025.6</p>
+            <p class="date">2025.2 - now</p>
             <ul>
                 <li>Developed an imitation learning framework for robotic manipulation tasks using 3D Diffusion Policy, achieving scene-adaptive performance without external markers</li>
-                <li>Implemented depth camera-based spatial perception with optimized point cloud processing (10x speed improvement over RANSAC)</li>
-                <li>Designed a complete pipeline including data collection (RealSense D435 + ARX 5 teleoperation), policy training (1001 epochs), and real-world deployment</li>
+                <li>Implemented depth camera-based(RealSense D435i) spatial perception with optimized point cloud processing (fps to 1024 points and cropping)</li>
+                <li>Intrinsic and extrinsic calibration of the camera to the base of the robotic arm</li>
+                <li>Designed a complete pipeline including data collection, policy training (1001 epochs), and real-world deployment</li>
                 <li>Achieved 100% success rate on drawer-closing tasks and 70% on bowl-grasping tasks under randomized conditions</li>
             </ul>
             <div class="project-gallery">
@@ -216,42 +217,94 @@
             <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy" target="_blank">
             github
         </a>
-            <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy/blob/main/Desktop%20Cleaning%20by%20Robotic%20Arm%20via%203D%20Diffusion%20Policy.pdf" target="_blank">
+            <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy/blob/main/Desktop%20Cleaning%20by%20Robotic%20Arm%20via%203D%20Diffusion%20Policy%20ppt.pdf" target="_blank">
             PPT
         </a>        
             </div>
         </div>
         <div class="project-item">
-            <h3> Pointfoot robot walking on different terrains through reinforcement learning</h3>
+            <h3> Pointfoot and wheelfoot robot locomotion with reinforcement learning</h3>
             <p class="date">2025.5 - 2025.6</p>
             <ul>
-                <li>Developed our own reward functions for reinforcement learning to train the pointfoot robot to walk on different terrains</li>
+                <li>Used the framework legged-gym to train the pointfoot and wheelfoot robot to walk on different terrains and stairs in issacgym</li>
                 <li>Finetune the reward params to achieve the best performance on different terrains</li>
-                <li>Became familiar with the deep reinforcement learning framework (PyTorch)</li>
-                <li>Achieved a high success rate with little time and high stability, got 96/100 points in the final score of the course</li>
+                <li>Deployed the wheelfoot robot to climb staits of the height of 18cm, achieving a stable and smooth locomotion in real-world</li>
+                <li>Deployed the pointfoot(and wheelfoot) to traverse different terrains sim-to-sim in mujoco simulator.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/pointfoot_env.png" alt="Pointfoot robot walking on different terrains">
                 </div>
                 <div class="project-media">
-                    <img src="images/code_summary.png" alt="Code structure">
-                </div>                
-                <div class="project-media">
                     <video controls>
                         <source src="videos/RL_pointfoot.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
+                </div>              
+                <div class="project-media">
+                    <video controls>
+                        <source src="videos/Wheelfoot_stairs.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
                 </div>
-            <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy/blob/main/Desktop%20Cleaning%20by%20Robotic%20Arm%20via%203D%20Diffusion%20Policy.pdf" target="_blank">
+            <a href="https://github.com/24zen0/OCE_Final_Project/blob/main/Code%20explanation%20for%20Pointfoot%20robot.pdf" target="_blank">
             Paper
         </a>
-            <a href="https://github.com/24zen0/OCE_Final_Project/blob/main/Code%20explanation%20for%20Pointfoot%20robot.pdf" target="_blank">
+            <a href="https://github.com/24zen0/Deployment_of_wheelfoot_tron" target="_blank">
             github
         </a>      
             </div>
         </div>
-        
+        <div class="project-item">
+            <h3> Modeling and Experiment of Unmanned Aerial Vehicle (UAV) Heavy Object Suspension System</h3>
+            <p class="date">2025.4 - 2025.6</p>
+            <ul>
+                <li>Using motion capture and IMU data to model the UAV's heavy object suspension system</li>
+                <li>Math modeling with Newton-Euler equations to contruct the suspension system</li>
+                <li>Get familiar with PX4 system and UAV control algorithms</li>
+            </ul>
+            <div class="project-gallery">
+                <div class="project-media">
+                    <img src="images/imu_for_uav.png" alt="IMU for uav">
+                </div>
+                <div class="project-media">
+                    <img src="images/motion_capture_uav.png" alt="motion capture for uav">
+                </div>                
+                <div class="project-media">
+                    <video controls>
+                        <source src="/videos/UAV suspension.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            <a href="https://github.com/24zen0/Modeling-and-Experiment-of-UAV-Heavy-Object-Suspension-System/blob/main/UAV%20Modeling%20and%20Real-World%20Experiments.pdf" target="_blank">
+            Paper 
+            </div>
+        </div>
+        <div class="project-item">
+            <h3>Intelligent Scissors using A star algorithm with java</h3>
+            <p class="date">2025.3 - 2025.6</p>
+            <ul>
+                <li>Using motion capture and IMU data to model the UAV's heavy object suspension system</li>
+                <li>Math modeling with Newton-Euler equations to contruct the suspension system</li>
+                <li>Get familiar with PX4 system and UAV control algorithms</li>
+            </ul>
+            <div class="project-gallery">
+                <div class="project-media">
+                    <img src="images/imu_for_uav.png" alt="IMU for uav">
+                </div>
+                <div class="project-media">
+                    <img src="images/motion_capture_uav.png" alt="motion capture for uav">
+                </div>                
+                <div class="project-media">
+                    <video controls>
+                        <source src="/videos/UAV suspension.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            <a href="https://github.com/24zen0/Intelligent_Scissors_for_dsaa/blob/main/CS203B%20Project-Intelligent%20Scissors-2.pdf" target="_blank">
+            Paper 
+            </div>
+        </div>                
         <div class="project-item">
             <h3>电商平台数据分析系统 (Python + Django + ECharts)</h3>
             <p class="date">2023年9月 - 2024年1月</p>
