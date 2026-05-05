@@ -198,17 +198,43 @@
             <h3>Southern University of Science and Technology (SUSTech)-Automation</h3>
             <p class="date">2023.8 - now   </p>
             <ul>
-                <li>Hi everyone! I'm Yitao Zeng, a senior student in Automation Engineering at Southern University of Science and Technology (SUSTech). I'm passionate about embodied AI and I'm currently a research intern at Galbot, collaborating with Prof. Wang He from PKU.</li>
+                <li>Hi everyone! I'm Yitao Zeng, a third year student majoring in Automation Engineering at Southern University of Science and Technology (SUSTech). I'm passionate about embodied AI and I'm currently a research intern at Galbot, collaborating with Prof. Wang He from PKU.</li>
             </ul>
         </div>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
+
+        <!-- project during my internship at Galbot: -->
+        <div class="project-item">
+            <h3> Tasks Done During My Internship</h3>
+            <p class="date">2026.1 - 2026.5</p>
+            <ul>
+                <li>Implemented 3D Diffusion Policy on synthetic datasets as a baseline for the RSS paper StereoVLA.</li>
+                <li>Processed and converted a 20TB dataset from TFDS to LeRobot format, achieving a 99.54% validation rate.</li>
+                <li>Participated in real-world robot deployment experiments to test initial poses for foundation models.</li>
+                <li>Explored methods to improve data utilization using influence functions.</li>
+            </ul>
+            <div class="project-gallery">
+                <div class="project-media">
+                    <img src="images/baseline dp3.png" alt="Baseline 3D Diffusion Policy result">
+                </div>
+                <div class="project-media">
+                    <img src="images/Dataset transfer.png" alt="Dataset transfer and conversion workflow">
+                </div>
+                <div class="project-media">
+                    <img src="images/foundation models testing.png" alt="Foundation model testing during robot deployment">
+                </div>
+            <a href="https://github.com/24zen0/4-months-work-during-internship/blob/main/曾亦陶的银河汇报4.25%20newest.pdf">
+            PPT
+        </a>        
+            </div>
+        </div>
         
         <div class="project-item">
             <h3> Desktop Cleaning by Robotic Arm via 3D Diffusion Policy</h3>
-            <p class="date">2025.2 - now</p>
+            <p class="date">2025.2 - 2025.12</p>
             <ul>
                 <li>Developed an imitation learning framework for robotic manipulation tasks using 3D Diffusion Policy, achieving scene-adaptive performance without external markers</li>
                 <li>Implemented depth camera-based(RealSense D435i) spatial perception with optimized point cloud processing (fps to 1024 points and cropping)</li>
@@ -239,12 +265,11 @@
         </div>
         <div class="project-item">
             <h3> Pointfoot and wheelfoot robot locomotion with reinforcement learning</h3>
-            <p class="date">2025.5 - 2025.6</p>
+            <p class="date">2025.5 - 2025.8</p>
             <ul>
-                <li>Used the framework legged-gym to train the pointfoot and wheelfoot robot to walk on different terrains and stairs in both isaacgym and isaaclab</li>
+                <li>Used IsaacGym and IsaacLab to train the pointfoot and wheelfoot robot to walk on different terrains and stairs and deployed them in Mujuco</li>
                 <li>Finetune the reward params to achieve the best performance on different terrains</li>
-                <li>Deployed the wheelfoot robot to climb staits of the height of 18cm, achieving a stable and smooth locomotion in real-world</li>
-                <li>Deployed the pointfoot(and wheelfoot) to traverse different terrains sim-to-sim in mujoco simulator.</li>
+                <li>Deployed the wheelfoot robot to climb stairs with the height of 18cm, achieving a stable and smooth locomotion in real-world</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
@@ -263,11 +288,17 @@
                     </video>
                 </div>
             <a href="https://github.com/24zen0/OCE_Final_Project/blob/main/Code%20explanation%20for%20Pointfoot%20robot.pdf" target="_blank">
-            Paper
+            Paper1
         </a>
             <a href="https://github.com/24zen0/Deployment_of_wheelfoot_tron" target="_blank">
-            github
+            github1
         </a>      
+        <a href="https://github.com/24zen0/2026RL_bipedal_locomotion_Isaaclab/blob/main/Bipedal_Robot_Training_Via_Reinforcement_Learning%20.pdf" target="_blank">
+            Paper2
+        </a>
+        <a href="https://github.com/24zen0/2026RL_bipedal_locomotion_Isaaclab" target="_blank">
+            github2
+        </a>
             </div>
         </div>
         <div class="project-item">
@@ -300,7 +331,7 @@
             <h3>Intelligent Scissors(Image segmentation) using A star algorithm with java</h3>
             <p class="date">2025.3 - 2025.6</p>
             <ul>
-                <li>Robust Image Processing Pipeline: Implements a complete edge detection system combining Gaussian blur, Sobel operator, and cost matrix normalization for accurate boundary identification./li>
+                <li>Robust Image Processing Pipeline: Implements a complete edge detection system combining Gaussian blur, Sobel operator, and cost matrix normalization for accurate boundary identification. </li>
                 <li>Intelligent Path Optimization: Features A* pathfinding with real-time cursor snapping and innovative path cooling for automated point stabilization, reducing manual input.</li>
                 <li>User-Friendly Interactive Design: Offers versatile GUI modes (hand movement, grid overlay) with intuitive zoom/pan controls and visual feedback for precise segmentation.</li>
             </ul>
@@ -321,10 +352,28 @@
             Paper 
         </a>
             </div>
-        </div>                
+        </div>     
+
+        <div class="project-item">
+            <h3>A Comparative Study of CNN, LSTM and Transformer Models for Household Electricity Load Forecasting</h3>
+            <p class="date">2025.3 - 2025.6</p>
+            <ul>
+                <li>Built a unified time-series forecasting pipeline with daily resampling, missing-data analysis, cyclic time encoding, chronological train/validation/test splitting, feature scaling, and sliding-window supervision.</li>
+                <li>Implemented and compared CNN, TCN, LSTM, and Transformer models under the same training protocol to predict next-day household electricity consumption.</li>
+                <li>Analyzed model performance using MAE, MSE, RMSE, prediction visualizations, and training efficiency, showing that TCN achieved the best overall accuracy while CNN offered the fastest training.</li>
+            </ul>
+            <div class="project-gallery">
+                <div class="project-media">
+                    <img src="images/household electricity load.png" alt="Household electricity load forecasting results">
+                </div>
+            <a href="https://github.com/24zen0/AI_final_project_CNN_LSTM_and_Transformer_for_Household_Electricity_Load_Forecasting/blob/main/A_Comparative_Study_of_CNN__LSTM__and_Transformer_Models_for_Household_Electricity_Load_Forecasting.pdf" target="_blank">
+            Paper 
+        </a>
+            </div>
+        </div>  
 
     <footer>
-        <p>Last updated: Nov 9, 2025 | This résumé is built with HTML/CSS and hosted on GitHub Pages.</p>
+        <p>Last updated: May 5, 2026 | This résumé is built with HTML/CSS and hosted on GitHub Pages.</p>
     </footer>
 </body>
 </html>
