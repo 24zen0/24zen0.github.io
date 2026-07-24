@@ -1,176 +1,431 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yitao Zeng</title>
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2980b9;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --dark-gray: #777;
+            --ink: #152321;
+            --muted: #61706d;
+            --surface: #ffffff;
+            --canvas: #f3f7f5;
+            --line: #dce7e3;
+            --accent: #51d6b5;
+            --accent-dark: #087c69;
+            --hero: #0d302e;
+            --hero-deep: #071f1e;
+            --shadow: 0 18px 50px rgba(23, 55, 49, 0.09);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            margin: 0;
+            padding: 32px 22px 0;
+            background:
+                radial-gradient(circle at 8% 2%, rgba(81, 214, 181, 0.16), transparent 28rem),
+                var(--canvas);
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        header,
+        main,
+        footer {
+            width: min(1120px, 100%);
+            margin-right: auto;
+            margin-left: auto;
         }
         
         header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: clamp(42px, 7vw, 76px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            background:
+                linear-gradient(135deg, rgba(81, 214, 181, 0.13), transparent 42%),
+                linear-gradient(145deg, var(--hero), var(--hero-deep));
+            box-shadow: 0 28px 70px rgba(7, 31, 30, 0.22);
+            color: #fff;
+        }
+
+        header::after {
+            position: absolute;
+            z-index: -1;
+            top: -135px;
+            right: -90px;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(81, 214, 181, 0.24);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 48px rgba(81, 214, 181, 0.04),
+                0 0 0 96px rgba(81, 214, 181, 0.025);
+            content: "";
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
         
         h1 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
+            max-width: 760px;
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3.2rem, 8vw, 6.4rem);
+            font-weight: 500;
+            letter-spacing: -0.055em;
+            line-height: 0.96;
+        }
+
+        .role {
+            max-width: 680px;
+            margin: 22px 0 28px;
+            color: #c9d9d5;
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            letter-spacing: 0.02em;
         }
         
         .contact-info {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 10px;
+            gap: 10px;
+            margin-bottom: 22px;
         }
         
         .contact-item {
-            display: flex;
+            display: inline-flex;
             align-items: center;
+            gap: 8px;
+            min-height: 38px;
+            padding: 7px 13px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #e7f0ee;
+            font-size: 0.88rem;
+            text-decoration: none;
+            transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
         }
         
         .contact-item i {
-            margin-right: 5px;
-            color: var(--primary-color);
+            color: var(--accent);
         }
 
-        .contact-item a {
-            color: inherit;
-            text-decoration: none;
+        .contact-item:hover {
+            border-color: rgba(81, 214, 181, 0.55);
+            background: rgba(81, 214, 181, 0.1);
+            transform: translateY(-2px);
         }
 
-        .contact-item a:hover {
-            color: var(--primary-color);
+        main {
+            padding: 26px 0 70px;
         }
         
         section {
-            margin-bottom: 30px;
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 26px;
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            align-items: center;
+            gap: clamp(28px, 5vw, 58px);
+            padding: clamp(26px, 5vw, 50px);
+            border: 1px solid rgba(220, 231, 227, 0.9);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: var(--shadow);
+        }
+
+        .intro-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px;
+            box-shadow: 14px 14px 0 #dff3ed;
+        }
+
+        .intro-text::before {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-dark);
+            content: "ABOUT";
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.17em;
+        }
+
+        .intro p {
+            margin: 0 0 1em;
+            color: #40504d;
+            font-size: 1.02rem;
+        }
+
+        .intro p:first-child {
+            color: var(--ink);
+            font-size: clamp(1.08rem, 2vw, 1.24rem);
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        #projects {
+            padding-top: 28px;
         }
         
         h2 {
-            color: var(--primary-color);
-            border-bottom: 1px solid var(--light-gray);
-            padding-bottom: 5px;
-            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 0 0 22px;
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        h2::after {
+            width: 72px;
+            height: 2px;
+            background: var(--accent-dark);
+            content: "";
         }
         
         h3 {
-            margin-bottom: 5px;
+            max-width: 780px;
+            margin: 0 0 8px;
+            color: var(--ink);
+            font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+            line-height: 1.3;
         }
-        
-        .education-item, .experience-item, .project-item {
-            margin-bottom: 20px;
+
+        .project-item {
+            position: relative;
+            margin-bottom: 22px;
+            padding: clamp(24px, 4vw, 38px);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: var(--surface);
+            box-shadow: 0 12px 32px rgba(23, 55, 49, 0.055);
+            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+        }
+
+        .project-item::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(var(--accent), var(--accent-dark));
+            content: "";
+            opacity: 0;
+            transition: opacity 180ms ease;
+        }
+
+        .project-item:hover {
+            border-color: #bddbd3;
+            box-shadow: var(--shadow);
+            transform: translateY(-3px);
+        }
+
+        .project-item:hover::before {
+            opacity: 1;
         }
         
         .date {
-            color: var(--dark-gray);
-            font-style: italic;
-            margin-bottom: 5px;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0 16px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #edf7f4;
+            color: var(--accent-dark);
+            font-size: 0.78rem;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 0.04em;
         }
         
         ul {
-            padding-left: 20px;
+            margin: 0;
+            padding-left: 21px;
+            color: var(--muted);
         }
         
         li {
-            margin-bottom: 5px;
+            margin-bottom: 7px;
+            padding-left: 4px;
         }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .skill {
-            background: var(--light-gray);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.9em;
+
+        li::marker {
+            color: var(--accent-dark);
         }
         
         .project-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
         }
         
         .project-media {
-            border: 1px solid #ddd;
-            border-radius: 5px;
             overflow: hidden;
+            min-height: 170px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: #eaf1ef;
         }
         
-        .project-media img, .project-media video {
+        .project-media img,
+        .project-media video {
             width: 100%;
-            height: auto;
+            height: 100%;
+            min-height: 170px;
             display: block;
+            object-fit: cover;
+            transition: transform 300ms ease;
         }
-        
-        .award-item {
-            margin-bottom: 15px;
+
+        .project-media:hover img {
+            transform: scale(1.025);
         }
-        
-        .award-title {
-            font-weight: bold;
+
+        .project-gallery > a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 9px 14px;
+            border: 1px solid #bfddd5;
+            border-radius: 12px;
+            background: #f4fbf9;
+            color: #086b5c;
+            font-size: 0.88rem;
+            font-weight: 750;
+            text-decoration: none;
+            transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+        }
+
+        .project-gallery > a:hover {
+            background: var(--accent-dark);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            min-height: 46px;
+            padding: 10px 17px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            background: var(--accent);
+            color: #092723;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+        }
+
+        .download-btn:hover {
+            background: #75e2c7;
+            box-shadow: 0 10px 24px rgba(81, 214, 181, 0.2);
+            transform: translateY(-2px);
         }
         
         footer {
+            padding: 24px 0 28px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.84rem;
             text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--light-gray);
-            color: var(--dark-gray);
-            font-size: 0.9em;
+        }
+
+        a:focus-visible {
+            outline: 3px solid rgba(81, 214, 181, 0.5);
+            outline-offset: 3px;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 720px) {
             body {
-                padding: 15px;
+                padding: 14px 14px 0;
+            }
+
+            header {
+                padding: 38px 24px;
+                border-radius: 20px;
+            }
+
+            header::after {
+                right: -210px;
+            }
+
+            .contact-info {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .contact-item {
+                width: fit-content;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                padding: 24px;
+                border-radius: 18px;
+            }
+
+            .intro-photo {
+                width: min(230px, 100%);
+                margin: 0 auto;
+                box-shadow: 10px 10px 0 #dff3ed;
+            }
+
+            #projects {
+                padding-top: 16px;
+            }
+
+            .project-item {
+                border-radius: 18px;
             }
             
             .project-gallery {
                 grid-template-columns: 1fr;
             }
         }
-        .download-btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
 
-        .download-btn:hover {
-            background-color: var(--secondary-color);
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
         }
 
     </style>
@@ -178,34 +433,33 @@
 </head>
 <body>
     <header>
+        <p class="eyebrow">Robotics · Embodied Intelligence</p>
         <h1>Yitao Zeng</h1>
-        <p>Automation | Robotics</p>
+        <p class="role">Robotics Engineering student exploring how intelligent robots perceive, reason, and act in complex environments.</p>
         <div class="contact-info">
-
-            <div class="contact-item">
+            <a class="contact-item" href="mailto:zengyt2023@mail.sustech.edu.cn">
                 <i class="fas fa-envelope"></i>
                 <span>zengyt2023@mail.sustech.edu.cn</span>
-            </div>
-            <div class="contact-item">
+            </a>
+            <a class="contact-item" href="https://github.com/24zen0" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i>
                 <span>github.com/24zen0</span>
-            </div>
-            <div class="contact-item">
+            </a>
+            <a class="contact-item" href="https://xhslink.com/m/1UzuD9o4x6Y" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-link"></i>
-                <a href="https://xhslink.com/m/1UzuD9o4x6Y" target="_blank" rel="noopener noreferrer">Red Note</a>
-            </div>
+                <span>Red Note</span>
+            </a>
         </div>
         <a href="files/Yitao_Zeng_CV.pdf" download class="download-btn">📄 Download CV</a>
     </header>
 
-    <section id="education">
-        <h2>Education</h2>
-        <div class="education-item">
-            <h3>Southern University of Science and Technology (SUSTech)-Automation</h3>
-            <p class="date">2023.8 - now   </p>
-            <ul>
-                <li>Hi everyone! I'm Yitao Zeng, a third year student majoring in Automation Engineering at Southern University of Science and Technology (SUSTech). I'm passionate about embodied AI and I'm currently a research intern at Galbot, collaborating with Prof. Wang He from PKU.</li>
-            </ul>
+    <main>
+    <section class="intro">
+        <img class="intro-photo" src="images/个人照片.jpg" alt="Portrait of Yitao Zeng">
+        <div class="intro-text">
+            <p>Hi! I’m Yitao Zeng, a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech). From September to December, I will join the University of Toronto as an exchange student.</p>
+            <p>My research is driven by two central questions: How can embodied intelligence help robots operate in rescue and other high-risk environments? And how can we better understand the “brain” of a robot or autonomous agent—the mechanisms behind its perception, reasoning, and decision-making?</p>
+            <p>I am currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. Boyu Zhou, where I work on reinforcement-learning-based control and autonomous perception for aerial robots.</p>
         </div>
     </section>
 
@@ -214,7 +468,7 @@
 
         <!-- project during my internship at Galbot: -->
         <div class="project-item">
-            <h3> Tasks Done During My Internship</h3>
+            <h3> Projects During Internship at Galbot</h3>
             <p class="date">2026.1 - 2026.5</p>
             <ul>
                 <li>Implemented 3D Diffusion Policy on synthetic datasets as a baseline for the RSS paper StereoVLA.</li>
@@ -377,6 +631,8 @@
         </a>
             </div>
         </div>  
+    </section>
+    </main>
 
     <footer>
         <p>Last updated: May 5, 2026 | This résumé is built with HTML/CSS and hosted on GitHub Pages.</p>
