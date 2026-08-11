@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yitao Zeng</title>
+    <meta name="description" content="Yitao Zeng's research portfolio in robot learning, embodied AI, and real-world robotic systems.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Yitao Zeng | Robot Learning &amp; Embodied AI</title>
     <style>
         :root {
             --ink: #152321;
@@ -77,9 +79,9 @@
 
         .eyebrow {
             margin: 0 0 12px;
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 700;
+            color: #ffd166;
+            font-size: clamp(0.92rem, 1.6vw, 1.08rem);
+            font-weight: 800;
             letter-spacing: 0.16em;
             text-transform: uppercase;
         }
@@ -96,10 +98,18 @@
 
         .role {
             max-width: 680px;
-            margin: 22px 0 28px;
+            margin: 22px 0 10px;
             color: #c9d9d5;
             font-size: clamp(1.05rem, 2vw, 1.3rem);
             letter-spacing: 0.02em;
+        }
+
+        .affiliation {
+            margin: 0 0 28px;
+            color: var(--accent);
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
         }
 
         .site-nav {
@@ -390,12 +400,26 @@
             content: "";
         }
         
-        h3 {
+        h3,
+        .project-item h4 {
             max-width: 780px;
             margin: 0 0 8px;
             color: var(--ink);
             font-size: clamp(1.25rem, 2.5vw, 1.65rem);
             line-height: 1.3;
+        }
+
+        .project-group-title {
+            margin: 30px 0 14px;
+            color: var(--accent-dark);
+            font-size: 0.83rem;
+            font-weight: 850;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        #projects > .project-group-title:first-of-type {
+            margin-top: 0;
         }
 
         .project-item {
@@ -540,6 +564,12 @@
             text-align: center;
         }
 
+        footer a {
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-underline-offset: 3px;
+        }
+
         a:focus-visible {
             outline: 3px solid rgba(81, 214, 181, 0.5);
             outline-offset: 3px;
@@ -630,9 +660,10 @@
 </head>
 <body>
     <header>
-        <p class="eyebrow">Robotics · Embodied Intelligence</p>
+        <p class="eyebrow">Robot Learning · Embodied AI</p>
         <h1>Yitao Zeng</h1>
-        <p class="role">Robotics Engineering student exploring how intelligent robots perceive, reason, and act in complex environments.</p>
+        <p class="role">Undergraduate researcher developing learning-based robots that perceive, move, and act in the real world.</p>
+        <p class="affiliation">SUSTech · STAR Group · RSS 2026 Co-author</p>
         <nav class="site-nav" aria-label="Primary navigation">
             <a href="#about">About</a>
             <a href="#news">News</a>
@@ -644,13 +675,17 @@
                 <i class="fas fa-envelope"></i>
                 <span>zengyt2023@mail.sustech.edu.cn</span>
             </a>
+            <a class="contact-item" href="https://scholar.google.com/citations?user=TnoAecQAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Google Scholar</span>
+            </a>
             <a class="contact-item" href="https://github.com/24zen0" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i>
                 <span>github.com/24zen0</span>
             </a>
             <a class="contact-item" href="https://xhslink.com/m/1UzuD9o4x6Y" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-link"></i>
-                <span>Red Note</span>
+                <i class="fas fa-book-open"></i>
+                <span>Xiaohongshu</span>
             </a>
         </div>
         <a href="files/Yitao_Zeng_CV.pdf" download class="download-btn">📄 Download CV</a>
@@ -658,11 +693,11 @@
 
     <main>
     <section class="intro" id="about">
-        <img class="intro-photo" src="images/个人照片.jpg" alt="Portrait of Yitao Zeng">
+        <img class="intro-photo" src="images/个人照片.jpg" alt="Yitao Zeng operating a quadruped robot during a robotics competition">
         <div class="intro-text">
-            <p>Hi! I’m Yitao Zeng, a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech). From September to December, I will join the University of Toronto as an exchange student.</p>
-            <p>My research is driven by two central questions: How can embodied intelligence help robots operate in rescue and other high-risk environments? And how can we better understand the “brain” of a robot or autonomous agent—the mechanisms behind its perception, reasoning, and decision-making?</p>
-            <p>I am currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. Boyu Zhou, where I work on reinforcement-learning-based control and autonomous perception for aerial robots.</p>
+            <p>I’m a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech), advised by Prof. Wei Zhang. Ranked 2nd out of 35 students.</p>
+            <p>Currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. <strong>Boyu Zhou</strong>. Previously, I was mentored by Prof. <strong>He Wang</strong> during a research internship at Galbot.</p>
+            <p>My research interests lie in agent and robot learning, with a focus on enabling learning-based robots to operate reliably in the real world. I am particularly interested in outdoor embodied intelligence for emergency-response and rescue settings, as well as how cognitive principles can inform perception, reasoning, and decision-making in embodied agents.</p>
         </div>
     </section>
 
@@ -672,24 +707,32 @@
             <p class="news-year">2026</p>
             <ul class="news-list">
                 <li>
-                    <time class="news-date" datetime="2026-08-06">Aug 6, 2026</time>
-                    <span>Our hackathon team and its award-winning AI-powered makeup robotic arm were featured by the <em>South China Morning Post</em>. <a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer">Media coverage</a></span>
+                    <time class="news-date" datetime="2026-09">Sep. 2026</time>
+                    <span><em>Upcoming:</em> Will join the Faculty of Applied Science &amp; Engineering at the University of Toronto’s St. George campus as an exchange student from September to December 2026.</span>
                 </li>
                 <li>
-                    <time class="news-date" datetime="2026-08-05">Aug 5, 2026</time>
-                    <span>Won the Grand MVP Award at the Hong Kong Physical AI Hackathon, standing out among more than 160 participants.</span>
+                    <time class="news-date" datetime="2026-08">Aug. 2026</time>
+                    <span><em>Ongoing:</em> Building on our Grand MVP–winning Hong Kong Physical AI Hackathon project, I am exploring an early-stage agent-driven robotic-arm system for organizing personal vanity spaces.</span>
                 </li>
                 <li>
-                    <time class="news-date" datetime="2026-06-24">Jun 24, 2026</time>
-                    <span>Joined the STAR Lab at SUSTech as a research intern, working on learning-based control and autonomous perception for aerial robots.</span>
+                    <time class="news-date" datetime="2026-08-06">Aug. 6, 2026</time>
+                    <span>Our award-winning AI-powered makeup robotic arm was featured by <a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer"><em>South China Morning Post</em></a>, <a class="inline-link" href="https://www.chinadailyhk.com/hk/article/637715" target="_blank" rel="noopener noreferrer"><em>China Daily</em></a>, <a class="inline-link" href="https://mp.weixin.qq.com/s/1z5Rmu66m2_PhwDqf69Y_g" target="_blank" rel="noopener noreferrer"><em>SpacemiT</em></a>, and <a class="inline-link" href="https://mp.weixin.qq.com/s/W8Yn3zU6GArd_kPdnLJZuA" target="_blank" rel="noopener noreferrer"><em>Brizan Ventures</em></a>.</span>
+                </li>
+                <li>
+                    <time class="news-date" datetime="2026-08-05">Aug. 5, 2026</time>
+                    <span>Our team won the Grand MVP Award at the Hong Kong Physical AI Hackathon, among 160 participants across 37 teams.</span>
+                </li>
+                <li>
+                    <time class="news-date" datetime="2026-06-24">Jun. 24, 2026</time>
+                    <span>Joined the STAR Group at SUSTech as a research intern.</span>
                 </li>
                 <li>
                     <time class="news-date" datetime="2026-05-11">May 11, 2026</time>
-                    <span>Our paper, <a class="inline-link" href="#publications"><em>StereoVLA</em></a>, was accepted to Robotics: Science and Systems (RSS) 2026. I am deeply grateful to Shengliang Deng and Mi Yan for the opportunity to contribute to this work.</span>
+                    <span>Co-authored <a class="inline-link" href="#publications"><em>StereoVLA</em></a>, accepted to Robotics: Science and Systems (RSS) 2026. I am deeply grateful to Shengliang Deng and Mi Yan for the opportunity to contribute to this work.</span>
                 </li>
                 <li>
-                    <time class="news-date" datetime="2026-01-21">Jan 21, 2026</time>
-                    <span>Began my research internship at Galbot, focusing on vision-language-action models and robot learning.</span>
+                    <time class="news-date" datetime="2026-01-21">Jan. 21, 2026</time>
+                    <span>Began a research internship at Galbot, focusing on robot learning and vision-language-action models.</span>
                 </li>
             </ul>
         </div>
@@ -708,7 +751,7 @@
                 <p class="publication-summary">StereoVLA equips vision-language-action models with stereo-derived geometric cues, enabling more precise manipulation and stronger robustness to large camera-viewpoint variations.</p>
                 <p class="publication-note"><sup>*</sup> Equal contribution. <sup>†</sup> Corresponding authors.</p>
                 <div class="publication-links" aria-label="StereoVLA resources">
-                    <a href="https://arxiv.org/pdf/2512.21970" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener noreferrer">Paper</a>
                     <a href="https://shengliangd.github.io/StereoVLA-Webpage/" target="_blank" rel="noopener noreferrer">Project Page</a>
                     <a href="https://huggingface.co/shengliangd/StereoVLA" target="_blank" rel="noopener noreferrer">Model</a>
                 </div>
@@ -718,169 +761,190 @@
 
     <section id="projects">
         <h2>Projects</h2>
+        <h3 class="project-group-title">Selected Research &amp; Robotics</h3>
 
-        <!-- project during my internship at Galbot: -->
         <div class="project-item">
-            <h3> Projects During Internship at Galbot</h3>
-            <p class="date">2026.1 - 2026.5</p>
+            <h4>Aerial Grasping Research — STAR Group</h4>
+            <p class="date">Jun. 2026 – Present · STAR Group, SUSTech · Advisor: Prof. Boyu Zhou</p>
             <ul>
-                <li>Implemented 3D Diffusion Policy on synthetic datasets as a baseline for the RSS paper StereoVLA.</li>
-                <li>Processed and converted a 20TB dataset from TFDS to LeRobot format, achieving a 99.54% validation rate.</li>
-                <li>Participated in real-world robot deployment experiments to test initial poses for foundation models.</li>
-                <li>Explored methods to improve data utilization using influence functions.</li>
+                <li>Ongoing physical-UAV aerial-grasping research.</li>
+                <li>Paper in preparation.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
-                    <img src="images/baseline dp3.png" alt="Baseline 3D Diffusion Policy result">
+                    <video controls preload="metadata" aria-label="STAR UAV aerial-grasping demo">
+                        <source src="videos/star_uav_aerial_grasping_demo.mp4" type="video/mp4">
+                        Your browser does not support video playback.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- project during my internship at Galbot: -->
+        <div class="project-item">
+            <h4>Robot Learning Systems &amp; Data Engineering — Galbot</h4>
+            <p class="date">Jan. 2026 – Jul. 2026 · Mentored by Prof. He Wang</p>
+            <ul>
+                <li>Converted and validated a TFDS dataset into the project’s LeRobot representation using HPC resources.</li>
+                <li>Built and debugged a 3D Diffusion Policy-style depth-to-point-cloud baseline; used failure analysis to identify sim-to-real, coordinate/action, and deployment bottlenecks.</li>
+                <li>Supported robot-to-inference system integration and initial-pose testing for a separate test-model experiment.</li>
+                <li>Explored influence-function approaches to data curation for embodied learning.</li>
+            </ul>
+            <div class="project-gallery">
+                <div class="project-media">
+                    <img src="images/baseline dp3.png" alt="3D Diffusion Policy debugging visualization from the Galbot internship">
                 </div>
                 <div class="project-media">
                     <img src="images/Dataset transfer.png" alt="Dataset transfer and conversion workflow">
                 </div>
                 <div class="project-media">
-                    <img src="images/foundation models testing.png" alt="Foundation model testing during robot deployment">
+                    <img src="images/foundation models testing.png" alt="Robot-to-inference system integration and initial-pose testing">
                 </div>
             <a href="https://github.com/24zen0/4-months-work-during-internship/blob/main/曾亦陶的银河汇报4.25%20newest.pdf" target="_blank" rel="noopener noreferrer">
-            PPT
+            Technical Report
         </a>        
             </div>
         </div>
         
         <div class="project-item">
-            <h3> Desktop Cleaning by Robotic Arm via 3D Diffusion Policy</h3>
-            <p class="date">2025.2 - 2025.12</p>
+            <h4>3D Diffusion Policy for Real-Robot Desktop Manipulation</h4>
+            <p class="date">Feb. 2025 – Dec. 2025 · CLEAR Laboratory, SUSTech · Academic mentor: Prof. Wei Zhang</p>
             <ul>
-                <li>Developed an imitation learning framework for robotic manipulation tasks using 3D Diffusion Policy, achieving scene-adaptive performance without external markers</li>
-                <li>Implemented depth camera-based(RealSense D435i) spatial perception with optimized point cloud processing (fps to 1024 points and cropping)</li>
-                <li>Intrinsic and extrinsic calibration of the camera to the base of the robotic arm</li>
-                <li>Designed a complete pipeline including data collection, policy training (1001 epochs), and real-world deployment</li>
-                <li>Achieved 100% success rate on drawer-closing tasks and 70% on bowl-grasping tasks under randomized conditions</li>
+                <li>Co-built and deployed a 3D Diffusion Policy pipeline for real-robot desktop manipulation.</li>
+                <li>Owned point-cloud preprocessing with workspace cropping and farthest-point sampling (1,024 points) for the DP3 input.</li>
+                <li>Participated in calibration, demonstration collection, training, and ROS-based deployment across a second full pipeline iteration.</li>
+                <li>Diagnosed persistent policy jitter and multi-step task failures, sharpening my interest in perception-to-action interfaces, demonstration coverage, and evaluation design.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/dp3_pic.png" alt="Desktop Cleaning by Robotic Arm via 3D Diffusion Policy">
                 </div>
                 <div class="project-media">
-                    <video controls>
+                    <video controls preload="metadata" aria-label="3D Diffusion Policy real-robot manipulation demo">
                         <source src="videos/dp3_demo.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放
+                        Your browser does not support video playback.
                     </video>
                 </div>
             <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy/blob/main/Desktop%20Cleaning%20by%20Robotic%20Arm%20via%203D%20Diffusion%20Policy.pdf" target="_blank" rel="noopener noreferrer">
-            Paper
+            Project Report
         </a>
             <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy" target="_blank" rel="noopener noreferrer">
-            github
+            GitHub
         </a>
             <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy/blob/main/Desktop%20Cleaning%20by%20Robotic%20Arm%20via%203D%20Diffusion%20Policy%20ppt.pdf" target="_blank" rel="noopener noreferrer">
-            PPT
+            Presentation
         </a>        
             </div>
         </div>
         <div class="project-item">
-            <h3> Pointfoot and wheelfoot robot locomotion with reinforcement learning</h3>
-            <p class="date">2025.5 - 2025.8</p>
+            <h4>Reinforcement Learning for Point-Foot and Wheel-Legged Locomotion</h4>
+            <p class="date">Jun. 2025 – Jan. 2026 · Coursework, Competition &amp; Technical Report · Academic mentor: Prof. Wei Zhang</p>
             <ul>
-                <li>Used IsaacGym and IsaacLab to train the pointfoot and wheelfoot robot to walk on different terrains and stairs and deployed them in Mujuco</li>
-                <li>Finetune the reward params to achieve the best performance on different terrains</li>
-                <li>Deployed the wheelfoot robot to climb stairs with the height of 18cm, achieving a stable and smooth locomotion in real-world</li>
+                <li>Started with a point-foot locomotion project in Isaac Gym, then adapted the system to a wheel-legged platform for competition deployment.</li>
+                <li>Refined reward settings and motion constraints for wheel-legged stair climbing, including leg-clearance constraints and asynchronous leg behavior.</li>
+                <li>Returned to point-foot locomotion in Isaac Lab and Isaac Sim, adding disturbance evaluations and a larger, more challenging training curriculum.</li>
+                <li>Expanded the third-stage analysis in a technical report; in the competition setting, our wheel-legged system completed a documented 18 cm real-stair task in 10/10 attempts.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/pointfoot_env.png" alt="Pointfoot robot walking on different terrains">
                 </div>
                 <div class="project-media">
-                    <video controls>
+                    <video controls preload="metadata" aria-label="Point-foot reinforcement-learning locomotion demo">
                         <source src="videos/RL_pointfoot.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放
+                        Your browser does not support video playback.
                     </video>
                 </div>              
                 <div class="project-media">
-                    <video controls>
+                    <video controls preload="metadata" aria-label="Wheel-legged robot stair-climbing demo">
                         <source src="videos/Wheelfoot_stairs.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放
+                        Your browser does not support video playback.
                     </video>
                 </div>
             <a href="https://github.com/24zen0/OCE_Final_Project/blob/main/Code%20explanation%20for%20Pointfoot%20robot.pdf" target="_blank" rel="noopener noreferrer">
-            Paper1
+            Code Structure Report
         </a>
             <a href="https://github.com/24zen0/Deployment_of_wheelfoot_tron" target="_blank" rel="noopener noreferrer">
-            github1
+            Wheel-Foot GitHub
         </a>      
         <a href="https://github.com/24zen0/2026RL_bipedal_locomotion_Isaaclab/blob/main/Bipedal_Robot_Training_Via_Reinforcement_Learning%20.pdf" target="_blank" rel="noopener noreferrer">
-            Paper2
+            Point-Foot Technical Report
         </a>
         <a href="https://github.com/24zen0/2026RL_bipedal_locomotion_Isaaclab" target="_blank" rel="noopener noreferrer">
-            github2
+            Isaac Lab GitHub
         </a>
             </div>
         </div>
+
+        <h3 class="project-group-title">Additional Course Projects</h3>
+
         <div class="project-item">
-            <h3> Modeling and Experiment of Unmanned Aerial Vehicle (UAV) Heavy Object Suspension System</h3>
-            <p class="date">2025.4 - 2025.6</p>
+            <h4>UAV Suspended-Load Modeling &amp; Experiment</h4>
+            <p class="date">Apr. 2025 – Jun. 2025 · Course Project · Advisor: Prof. Liangming Chen</p>
             <ul>
-                <li>Using motion capture and IMU data to model the UAV's heavy object suspension system</li>
-                <li>Math modeling with Newton-Euler equations to contruct the suspension system</li>
-                <li>Get familiar with PX4 system and UAV control algorithms</li>
+                <li>Modeled the dynamics of a UAV suspended-load system using Newton–Euler equations.</li>
+                <li>Collected motion-capture and IMU measurements to compare the model with physical flight behavior.</li>
+                <li>Built practical familiarity with PX4 and UAV control workflows.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
-                    <img src="images/imu_for_uav.png" alt="IMU for uav">
+                    <img src="images/imu_for_uav.png" alt="IMU measurements for UAV suspended-load modeling">
                 </div>
                 <div class="project-media">
-                    <img src="images/motion_capture_uav.png" alt="motion capture for uav">
+                    <img src="images/motion_capture_uav.png" alt="Motion-capture setup for the UAV suspended-load experiment">
                 </div>                
                 <div class="project-media">
-                    <video controls>
+                    <video controls preload="metadata" aria-label="UAV suspended-load experiment demo">
                         <source src="videos/UAV suspension.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放
+                        Your browser does not support video playback.
                     </video>
                 </div>
             <a href="https://github.com/24zen0/Modeling-and-Experiment-of-UAV-Heavy-Object-Suspension-System/blob/main/UAV%20Modeling%20and%20Real-World%20Experiments.pdf" target="_blank" rel="noopener noreferrer">
-            Paper 
+            Project Report
         </a>
             </div>
         </div>
         <div class="project-item">
-            <h3>Intelligent Scissors(Image segmentation) using A star algorithm with java</h3>
-            <p class="date">2025.3 - 2025.6</p>
+            <h4>Interactive Image Segmentation with Intelligent Scissors</h4>
+            <p class="date">Mar. 2025 – Jun. 2025 · Course Project · Advisor: Prof. Zhiyun Lin</p>
             <ul>
-                <li>Robust Image Processing Pipeline: Implements a complete edge detection system combining Gaussian blur, Sobel operator, and cost matrix normalization for accurate boundary identification. </li>
-                <li>Intelligent Path Optimization: Features A* pathfinding with real-time cursor snapping and innovative path cooling for automated point stabilization, reducing manual input.</li>
-                <li>User-Friendly Interactive Design: Offers versatile GUI modes (hand movement, grid overlay) with intuitive zoom/pan controls and visual feedback for precise segmentation.</li>
+                <li>Built an interactive image-segmentation tool using Gaussian blur, Sobel edges, and a normalized cost map.</li>
+                <li>Implemented A* pathfinding with cursor snapping and path cooling for boundary-aware selection.</li>
+                <li>Designed GUI controls for zoom, pan, grid overlays, and visual feedback.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
-                    <img src="images/Intelligent scissors1.png" alt="Picture of Thonos">
+                    <img src="images/Intelligent scissors1.png" alt="Intelligent Scissors image-segmentation interface">
                 </div>
                 <div class="project-media">
-                    <img src="images/Intelligent scissors2.png" alt="motion capture for uav">
+                    <img src="images/Intelligent scissors2.png" alt="Boundary-selection result from the Intelligent Scissors tool">
                 </div>                
                 <div class="project-media">
-                    <video controls>
+                    <video controls preload="metadata" aria-label="Intelligent Scissors interaction demo">
                         <source src="videos/Intelligent Scissors.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放
+                        Your browser does not support video playback.
                     </video>
                 </div>
             <a href="https://github.com/24zen0/Intelligent_Scissors_for_dsaa/blob/main/CS203B%20Project-Intelligent%20Scissors-2.pdf" target="_blank" rel="noopener noreferrer">
-            Paper 
+            Project Report
         </a>
             </div>
         </div>     
 
         <div class="project-item">
-            <h3>A Comparative Study of CNN, LSTM and Transformer Models for Household Electricity Load Forecasting</h3>
-            <p class="date">2025.3 - 2025.6</p>
+            <h4>Household Electricity Load Forecasting</h4>
+            <p class="date">Mar. 2025 – Jun. 2025 · Course Project · Advisor: Prof. Peng Yang</p>
             <ul>
-                <li>Built a unified time-series forecasting pipeline with daily resampling, missing-data analysis, cyclic time encoding, chronological train/validation/test splitting, feature scaling, and sliding-window supervision.</li>
-                <li>Implemented and compared CNN, TCN, LSTM, and Transformer models under the same training protocol to predict next-day household electricity consumption.</li>
-                <li>Analyzed model performance using MAE, MSE, RMSE, prediction visualizations, and training efficiency, showing that TCN achieved the best overall accuracy while CNN offered the fastest training.</li>
+                <li>Built a time-series forecasting pipeline with daily resampling, missing-data analysis, cyclic encoding, chronological splits, scaling, and sliding-window supervision.</li>
+                <li>Implemented and compared CNN, TCN, LSTM, and Transformer models for next-day household electricity consumption under a shared training protocol.</li>
+                <li>Evaluated accuracy and efficiency using MAE, MSE, RMSE, prediction visualizations, and training time; TCN achieved the best overall accuracy, while CNN trained fastest.</li>
             </ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/household electricity load.png" alt="Household electricity load forecasting results">
                 </div>
             <a href="https://github.com/24zen0/AI_final_project_CNN_LSTM_and_Transformer_for_Household_Electricity_Load_Forecasting/blob/main/A_Comparative_Study_of_CNN__LSTM__and_Transformer_Models_for_Household_Electricity_Load_Forecasting.pdf" target="_blank" rel="noopener noreferrer">
-            Paper 
+            Project Report
         </a>
             </div>
         </div>  
@@ -888,7 +952,7 @@
     </main>
 
     <footer>
-        <p>Last updated: August 7, 2026 | This résumé is built with HTML/CSS and hosted on GitHub Pages.</p>
+        <p>Last updated: August 12, 2026 · Research website built with HTML/CSS and hosted on GitHub Pages</p>
     </footer>
 </body>
 </html>
