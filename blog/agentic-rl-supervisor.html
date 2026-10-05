@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letting an Agent Supervise a Long-Running RL Experiment | Yitao Zeng</title>
+<meta name="description" content="An engineering research note on automating experiments, enforcing permission boundaries, and learning from failed feedback loops.">
+<meta name="author" content="Yitao Zeng">
+<link rel="canonical" href="https://24zen0.github.io/blog/agentic-rl-supervisor.html">
+<link rel="alternate" hreflang="en" href="https://24zen0.github.io/blog/agentic-rl-supervisor.html">
+<link rel="alternate" hreflang="zh-CN" href="https://24zen0.github.io/blog/agentic-rl-supervisor.zh.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<a class="skip-link" href="#article">Skip to article</a>
+<nav class="topbar" aria-label="Primary navigation">
+<a class="wordmark" href="../index.html">Yitao Zeng<span>Research notes</span></a>
+<div><a href="../index.html#projects">All projects</a><a href="agentic-rl-supervisor.zh.html" lang="zh-CN" hreflang="zh-CN">中文</a></div>
+</nav>
+<div class="reading-layout">
+<main id="article">
+<header class="article-header">
+<p class="eyebrow">Agentic RL Supervisor</p>
+<h1>Letting an Agent Supervise a Long-Running RL Experiment</h1>
+<p class="lead">An engineering research note on automating experiments, enforcing permission boundaries, and learning from failed feedback loops.</p>
+<p class="byline">Yitao Zeng · Personally led project · Jul–Aug 2026</p>
+<a class="repo-link" href="https://github.com/24zen0/agentic-rl-supervisor" target="_blank" rel="noopener noreferrer">View project on GitHub <span aria-hidden="true">↗</span></a>
+</header>
+<details class="mobile-toc"><summary>On this page</summary><ol><li><a href="#section-1">The starting point: keeping the experiment moving</a></li><li><a href="#section-2">Project structure</a></li><li><a href="#section-3">A successful example</a></li><li><a href="#section-4">Limitations and next steps</a></li></ol></details>
+<article><h2 id="section-1">The starting point: keeping the experiment moving</h2>
+<p>This work grew out of an experiment in training a UAV to grasp an object precisely at high speed. Building on an algorithm developed by a senior colleague, I was exploring whether a drone could learn to grasp through physical contact in simulation rather than merely reach a geometric target.</p>
+<p>A single reinforcement-learning run can take hours. When time was limited, I wanted training to keep progressing while I slept; if a run stopped during the night, the GPU would sit idle until I returned.</p>
+<p>Much of the follow-up work was repetitive rather than conceptually difficult. A long plateau might call for splitting the curriculum into smaller stages; an unhealthy-looking learning curve might call for adjusting the learning rate. Each decision took time, but during local curriculum debugging, it usually depended on a limited set of metrics, parameters, and recovery points.</p>
+<p>That made the question concrete: could I let the agent make the next bounded decision and keep the experiment moving without waiting for me?</p>
+<h2 id="section-2">Project structure</h2>
+<p>The project settled into three parts. The <strong>trainer</strong> runs policy optimization and produces evaluations and checkpoints. A conventional <strong>supervisor</strong> watches that process and decides when a review is needed. At each review, it gives a <strong>short-lived agent</strong> the recent evidence and a limited copy of the curriculum. The agent proposes what to do next, the supervisor checks the proposal, and an approved change is returned to the trainer.</p>
+<figure><a class="figure-link" href="assets/workflow.png" target="_blank" rel="noopener"><img src="assets/workflow.png" alt="Trainer, supervisor, and agent workflow" width="2094" height="970" loading="lazy"></a><figcaption>Trainer, supervisor, and agent workflow</figcaption></figure>
+<p>I wanted the schedule and boundaries to remain part of the experiment design. A researcher can choose how often the agent reviews a run, which curriculum stages it may touch, which parameters it may change, and how many interventions it may make. The waiting belongs to the supervisor; the agent is launched only when a judgment is needed, which avoids idle time and keeps its cost under control.</p>
+<p>Several bugs and lessons shaped the structure. Here are the ones that mattered most:</p>
+<ol>
+<li><p><strong>Make training evidence easy to inspect.</strong> Early logs often recorded an evaluation step without its result, so a running process did not reveal whether the experiment was improving. I later made the training side store each evaluation with its Stage, metrics, and associated checkpoint information, so the agent could work from a clear record rather than search through terminal output.</p>
+</li>
+<li><p><strong>Define what completion means.</strong> Depending on the Stage, completion might mean reaching a threshold several times in a row, entering the next Stage, or recovering after a <code>regression_stop</code>. The researcher therefore defines completion for each task instead of letting a clean process exit stand in for a research result.</p>
+</li>
+<li><p><strong>Make review triggers unambiguous.</strong> “Review the run” was too vague: a periodic inspection, a confirmed plateau, a regression stop, and a non-final exit called for different responses. The agent needed to know whether it was only observing, diagnosing a problem, or preparing a recovery.</p>
+</li>
+<li><p><strong>Give each Stage a stable identity.</strong> Inserting or splitting Stages changes their numeric positions, so a Stage needed an identity beyond its array index. I therefore treated every agent response as a proposal: the supervisor checks it against the researcher&#39;s limits before it can change the live experiment.</p>
+</li>
+<li><p><strong>Treat a checkpoint as experiment state, not just a file.</strong> A checkpoint was not useful merely because it was the newest file; it needed to say which Stage it belonged to, which parent checkpoint it resumed from, what changed before it was written, and why that change was made. Keeping this metadata and a short Markdown record of the configuration diff made a restart easier to validate and an experiment easier to trace.</p>
+</li>
+</ol>
+<h2 id="section-3">A successful example</h2>
+<p>The clearest success occurred at Stage 20 of the grasping curriculum. Promotion required three consecutive evaluations with at least <code>75%</code> grasp success. The run briefly reached <code>76.0%</code>, then regressed to <code>69.8%</code>.</p>
+<p>The agent first reduced the learning rate for the gripper part of the policy, making its updates more conservative, and resumed from a verified Stage 20 checkpoint. Performance recovered but was still inconsistent. In the next review, the agent increased the reward for closing the gripper at a valid moment, giving that sparse event a stronger learning signal.</p>
+<p>A later run recorded <code>76.54%</code>, <code>76.32%</code>, and <code>75.46%</code> in three consecutive evaluations. Training passed the promotion rule and entered Stage 21.</p>
+<figure><a class="figure-link" href="assets/stage20-trace.svg" target="_blank" rel="noopener"><img src="assets/stage20-trace.svg" alt="Recorded Stage 20 grasp-success trace" width="1120" height="510" loading="lazy"></a><figcaption>Recorded Stage 20 grasp-success trace</figcaption></figure>
+<p><em>The chart shows consecutive observations before and after two interventions, not the independent causal effect of either parameter change.</em></p>
+<p>For me, this showed that the agent recognized a trend, proposed local changes, selected a compatible checkpoint, and continued the experiment until the next Stage. It was more than advice; it was an action that the supervisor accepted and the trainer carried out.</p>
+<h2 id="section-4">Limitations and next steps</h2>
+<p>Stage 20&#39;s promotion moved the curriculum into Stage 21, where the grasping window narrowed to 3 cm. Success then fell to roughly <code>39%</code>, far below the <code>65%</code> target. The agent tried several more local parameter changes, but none solved the bottleneck. It also proposed splitting the Stage; the supervisor rejected that proposal because the two components disagreed about how inserted Stages should be named.</p>
+<p>This did not mean that the supervision loop had failed. It showed its limit: the loop could observe, validate, and apply bounded local changes, but it could not resolve a bottleneck whose cause was still unknown or lay outside the allowed curriculum parameters. The automation was running correctly, while the research was no longer making useful progress.</p>
+<p>The next version of such a system could give the agent a broader research toolkit. Alongside training history and code, it could search papers and the web, compare related methods, and use that evidence to form better hypotheses. That would move it closer to a more fully automated research assistant, rather than only an autonomous hyperparameter tuner.</p>
+<p>Even if an agent gains much broader access, I would still keep the curriculum and supervisor. The curriculum gives exploration a sequence of manageable problems, while the supervisor keeps each intervention within boundaries chosen by the researcher. An agent given too much freedom can become hard for a human to understand, and it may not yet manage its own research process well enough to know when to stop, revise, or ask for help.</p>
+<p>The missing piece is a clear visual account of the agent&#39;s work. I would want to see a timeline of its interventions: the evidence it read, the configuration diff it made, the checkpoint it used, and what happened afterwards. A readable record would let a researcher inspect the loop, step in when needed, and improve their own understanding of the experiment instead of merely watching an autonomous process run.</p>
+<p>To me, an agent is still a tool, even as recursive self-improvement (RSI) makes that tool increasingly capable. The human researcher remains important for designing the curriculum, setting the supervision boundary, interpreting the evidence, and deciding what progress is worth pursuing. The goal is to give the human a stronger tool and a clearer view of the research process.</p>
+</article>
+<footer class="article-footer">
+<p>Original research note: <a href="https://github.com/24zen0/agentic-rl-supervisor/blob/main/docs/blog/autonomous-rl-supervision.en.md" target="_blank" rel="noopener noreferrer">GitHub · English</a></p>
+<a href="../index.html#agentic-rl-supervisor">Back to the project portfolio</a>
+</footer>
+</main>
+<aside class="desktop-toc"><nav aria-label="Table of contents"><p>On this page</p><ol><li><a href="#section-1">The starting point: keeping the experiment moving</a></li><li><a href="#section-2">Project structure</a></li><li><a href="#section-3">A successful example</a></li><li><a href="#section-4">Limitations and next steps</a></li></ol><a class="toc-repo" href="https://github.com/24zen0/agentic-rl-supervisor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></aside>
+</div>
+</body>
+</html>

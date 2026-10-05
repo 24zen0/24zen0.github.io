@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="510" viewBox="0 0 1120 510" role="img" aria-labelledby="title description">
+  <title id="title">Stage 20 grasp success across two interventions</title>
+  <desc id="description">Sixteen consecutive evaluations of grasp success rate. The baseline covers evaluations 1 through 5, the reduced learning-rate scale covers 6 through 10, and the increased close bonus covers 11 through 16. The last three evaluations exceed the 75 percent promotion threshold. This observational sequence does not establish the independent causal effect of either change.</desc>
+  <rect width="1120" height="510" fill="#ffffff"/>
+  <g font-family="sans-serif">
+    <text x="100" y="35" fill="#17212e" font-size="20" font-weight="700">Stage 20 grasp success across two interventions</text>
+    <g font-size="14" font-weight="600">
+      <line x1="100" y1="79" x2="340" y2="79" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+      <text x="220" y="65" text-anchor="middle" fill="#475569">Baseline</text>
+      <line x1="400" y1="79" x2="640" y2="79" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+      <text x="520" y="65" text-anchor="middle" fill="#1d4ed8">LR scale: 1.0 to 0.5</text>
+      <line x1="700" y1="79" x2="1000" y2="79" stroke="#0f766e" stroke-width="5" stroke-linecap="round"/>
+      <text x="850" y="65" text-anchor="middle" fill="#0f766e">Close bonus: 300 to 400</text>
+    </g>
+    <g stroke="#d9e1e8" stroke-width="1">
+      <line x1="100" y1="120" x2="1000" y2="120"/>
+      <line x1="100" y1="200" x2="1000" y2="200"/>
+      <line x1="100" y1="280" x2="1000" y2="280"/>
+      <line x1="100" y1="360" x2="1000" y2="360"/>
+    </g>
+    <g fill="#475569" font-size="13" text-anchor="end">
+      <text x="87" y="125">80%</text><text x="87" y="205">75%</text>
+      <text x="87" y="285">70%</text><text x="87" y="365">65%</text>
+    </g>
+    <text x="27" y="242" transform="rotate(-90 27 242)" text-anchor="middle" fill="#334155" font-size="14" font-weight="600">Grasp success rate (%)</text>
+    <line x1="100" y1="200" x2="1000" y2="200" stroke="#c2413a" stroke-width="2" stroke-dasharray="7 6"/>
+    <rect x="105" y="179" width="162" height="19" fill="#ffffff"/>
+    <text x="110" y="194" fill="#a3352e" font-size="13">75% promotion threshold</text>
+    <g stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 5">
+      <line x1="370" y1="99" x2="370" y2="365"/>
+      <line x1="670" y1="99" x2="670" y2="365"/>
+    </g>
+    <polyline fill="none" stroke="#243447" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+      points="100,184 160,209 220,226 280,254 340,284 400,252 460,231 520,200 580,241 640,207 700,224 760,192 820,213 880,175 940,179 1000,193"/>
+    <g fill="#243447">
+      <circle cx="100" cy="184" r="4"/><circle cx="160" cy="209" r="4"/>
+      <circle cx="220" cy="226" r="4"/><circle cx="280" cy="254" r="4"/>
+      <circle cx="340" cy="284" r="4"/><circle cx="400" cy="252" r="4"/>
+      <circle cx="460" cy="231" r="4"/><circle cx="520" cy="200" r="4"/>
+      <circle cx="580" cy="241" r="4"/><circle cx="640" cy="207" r="4"/>
+      <circle cx="700" cy="224" r="4"/><circle cx="760" cy="192" r="4"/>
+      <circle cx="820" cy="213" r="4"/>
+    </g>
+    <g fill="#0f766e" stroke="#ffffff" stroke-width="2">
+      <circle cx="880" cy="175" r="7"/><circle cx="940" cy="179" r="7"/>
+      <circle cx="1000" cy="193" r="7"/>
+    </g>
+    <g fill="#0f766e" font-size="13" font-weight="700" text-anchor="middle">
+      <text x="866" y="155">76.54%</text><text x="940" y="158">76.32%</text>
+      <text x="1028" y="178">75.46%</text>
+    </g>
+    <g fill="#475569" font-size="12" text-anchor="middle">
+      <text x="100" y="386">1</text><text x="160" y="386">2</text>
+      <text x="220" y="386">3</text><text x="280" y="386">4</text>
+      <text x="340" y="386">5</text><text x="400" y="386">6</text>
+      <text x="460" y="386">7</text><text x="520" y="386">8</text>
+      <text x="580" y="386">9</text><text x="640" y="386">10</text>
+      <text x="700" y="386">11</text><text x="760" y="386">12</text>
+      <text x="820" y="386">13</text><text x="880" y="386">14</text>
+      <text x="940" y="386">15</text><text x="1000" y="386">16</text>
+    </g>
+    <text x="550" y="418" text-anchor="middle" fill="#334155" font-size="14" font-weight="600">Evaluation number</text>
+    <text x="100" y="465" fill="#64748b" font-size="13">Consecutive evaluations across three configurations; no matched control run.</text>
+  </g>
+</svg>
