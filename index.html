@@ -27,7 +27,7 @@
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             margin: 0;
             padding: 32px 22px 0;
@@ -47,7 +47,7 @@
             margin-right: auto;
             margin-left: auto;
         }
-        
+
         header {
             position: relative;
             isolation: isolate;
@@ -85,7 +85,7 @@
             letter-spacing: 0.16em;
             text-transform: uppercase;
         }
-        
+
         h1 {
             max-width: 760px;
             margin: 0;
@@ -144,14 +144,14 @@
             border-color: rgba(255, 209, 102, 0.5);
             color: #ffe39a;
         }
-        
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 22px;
         }
-        
+
         .contact-item {
             display: inline-flex;
             align-items: center;
@@ -166,7 +166,7 @@
             text-decoration: none;
             transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
         }
-        
+
         .contact-item i {
             color: var(--accent);
         }
@@ -180,7 +180,7 @@
         main {
             padding: 26px 0 70px;
         }
-        
+
         section {
             margin-bottom: 26px;
         }
@@ -384,7 +384,7 @@
             color: #fff;
             transform: translateY(-2px);
         }
-        
+
         h2 {
             display: flex;
             align-items: center;
@@ -404,7 +404,7 @@
             background: var(--accent-dark);
             content: "";
         }
-        
+
         h3,
         .project-item h4 {
             max-width: 780px;
@@ -460,7 +460,7 @@
         .project-item:hover::before {
             opacity: 1;
         }
-        
+
         .date {
             display: inline-flex;
             align-items: center;
@@ -474,13 +474,13 @@
             font-weight: 700;
             letter-spacing: 0.04em;
         }
-        
+
         ul {
             margin: 0;
             padding-left: 21px;
             color: var(--muted);
         }
-        
+
         li {
             margin-bottom: 7px;
             padding-left: 4px;
@@ -489,14 +489,14 @@
         li::marker {
             color: var(--accent-dark);
         }
-        
+
         .project-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 12px;
             margin-top: 24px;
         }
-        
+
         .project-media {
             overflow: hidden;
             min-height: 170px;
@@ -504,7 +504,7 @@
             border-radius: 14px;
             background: #eaf1ef;
         }
-        
+
         .project-media img,
         .project-media video {
             width: 100%;
@@ -560,7 +560,7 @@
             box-shadow: 0 10px 24px rgba(81, 214, 181, 0.2);
             transform: translateY(-2px);
         }
-        
+
         footer {
             padding: 24px 0 28px;
             border-top: 1px solid var(--line);
@@ -579,7 +579,7 @@
             outline: 3px solid rgba(81, 214, 181, 0.5);
             outline-offset: 3px;
         }
-        
+
         @media (max-width: 720px) {
             body {
                 padding: 14px 14px 0;
@@ -642,7 +642,7 @@
             .project-item {
                 border-radius: 18px;
             }
-            
+
             .project-gallery {
                 grid-template-columns: 1fr;
             }
@@ -660,6 +660,15 @@
             }
         }
 
+
+        /* CV companion: prioritize contributions, results, and supporting artifacts. */
+        .publication-item { margin-bottom: 18px; }
+        .publication-text { grid-template-columns: minmax(0, 1fr); }
+        :focus-visible { outline: 3px solid #087c69; outline-offset: 4px; }
+        header :focus-visible { outline-color: #ffd166; }
+        .project-item .publication-note { margin-top: 16px; font-size: .86rem; }
+        .publication-figure figcaption { margin-top: 10px; font-size: .76rem; color: var(--muted); }
+        .publication-figure figcaption a { color: var(--accent-dark); }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -670,8 +679,8 @@
         <p class="role">Undergraduate researcher developing learning-based robots that perceive, move, and act in the real world.</p>
         <p class="affiliation">SUSTech · STAR Group · RSS 2026 Co-author</p>
         <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#about">About</a>
             <a href="#news">News</a>
+            <a href="#about">About</a>
             <a href="#publications">Publications</a>
             <a href="#projects">Projects</a>
             <a class="language-link" href="zh.html" lang="zh-CN">中文</a>
@@ -698,23 +707,14 @@
     </header>
 
     <main>
-    <section class="intro" id="about">
-        <img class="intro-photo" src="images/个人照片.jpg" alt="Yitao Zeng operating a quadruped robot during a robotics competition">
-        <div class="intro-text">
-            <p>I’m a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech), advised by Prof. Wei Zhang. Ranked 2nd out of 35 students.</p>
-            <p>Currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. <strong>Boyu Zhou</strong>. Previously, I was mentored by Prof. <strong>He Wang</strong> during a research internship at Galbot.</p>
-            <p>My research centers on agents and robot learning: enabling agents to understand the 3D and physical world, compose robot skills for decision-making and closed-loop action, and support autonomous scientific research. I am also interested in cognitively inspired embodied intelligence and outdoor robot learning for emergency-response and rescue scenarios.</p>
-        </div>
-    </section>
-
-    <section id="news">
+<section id="news">
         <h2>News</h2>
         <div class="news-card">
-            <p class="news-year">2026</p>
+            <p class="news-year">2026–2027</p>
             <ul class="news-list">
                 <li>
-                    <time class="news-date" datetime="2026-09">Sep. 2026</time>
-                    <span><em>Upcoming:</em> Will join the Faculty of Applied Science &amp; Engineering at the University of Toronto’s St. George campus as an exchange student from September to December 2026.</span>
+                    <time class="news-date" datetime="2027-01">Jan.–Apr. 2027</time>
+                    <span><em>Upcoming:</em> Incoming engineering exchange student at the University of Toronto, January–April 2027 (one of two university-wide nominees).</span>
                 </li>
                 <li>
                     <time class="news-date" datetime="2026-08">Aug. 2026</time>
@@ -743,32 +743,38 @@
             </ul>
         </div>
     </section>
-
-    <section id="publications">
+<section class="intro" id="about">
+        <img class="intro-photo" src="images/个人照片.jpg" alt="Yitao Zeng operating a quadruped robot during a robotics competition">
+        <div class="intro-text">
+            <p>I’m a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech). Ranked 2nd out of 35 students.</p>
+            <p>Currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. <strong>Boyu Zhou</strong>. Previously, I was mentored by Prof. <strong>He Wang</strong> during a research internship at Galbot.</p>
+            <p>My research centers on agents and robot learning: enabling agents to understand the 3D and physical world, compose robot skills for decision-making and closed-loop action, and support autonomous scientific research. I am also interested in cognitively inspired embodied intelligence and outdoor robot learning for emergency-response and rescue scenarios.</p>
+        </div>
+    </section>
+<section id="publications">
         <h2>Publications</h2>
         <article class="publication-item">
             <figure class="publication-figure">
-                <img src="images/stereovla-architecture.png" alt="StereoVLA architecture combining stereo image inputs with geometric and semantic vision features for robot action prediction">
+                <img src="images/stereovla-architecture.png" width="718" height="237" alt="StereoVLA architecture combining stereo image inputs with geometric and semantic vision features for robot action prediction">
             </figure>
             <div class="publication-content">
                 <h3 class="publication-title">StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision</h3>
-                <p class="publication-authors">Shengliang Deng<sup>*</sup>, Mi Yan<sup>*</sup>, Yixin Zheng<sup>*</sup>, Jiayi Su, Wenhao Zhang, <span class="publication-author-self">Yitao Zeng</span>, Xiaoguang Zhao, Heming Cui, Zhizheng Zhang<sup>†</sup>, He Wang<sup>†</sup></p>
-                <p class="publication-venue">Robotics: Science and Systems (RSS), 2026</p>
+                <p class="publication-authors">Shengliang Deng<sup>*</sup>, Mi Yan<sup>*</sup>, Yixin Zheng, Jiayi Su, Wenhao Zhang, <strong>Yitao Zeng</strong>, …, He Wang</p>
+                <p class="publication-venue">Accepted · Robotics: Science and Systems (RSS), 2026</p>
                 <p class="publication-summary">StereoVLA equips vision-language-action models with stereo-derived geometric cues, enabling more precise manipulation and stronger robustness to large camera-viewpoint variations.</p>
-                <p class="publication-note"><sup>*</sup> Equal contribution. <sup>†</sup> Corresponding authors.</p>
-                <div class="publication-links" aria-label="StereoVLA resources">
+                <p class="publication-note"><sup>*</sup> Equal contribution.</p>
+                <p class="publication-note">My contribution: dataset conversion and depth-aware baseline support.</p><div class="publication-links" aria-label="StereoVLA resources">
                     <a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener noreferrer">Paper</a>
                     <a href="https://shengliangd.github.io/StereoVLA-Webpage/" target="_blank" rel="noopener noreferrer">Project Page</a>
                     <a href="https://huggingface.co/shengliangd/StereoVLA" target="_blank" rel="noopener noreferrer">Model</a>
                 </div>
             </div>
         </article>
+<article class="publication-item" id="mirrorsentinel"><figure class="publication-figure"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer"><img src="images/mirrorsentinel-maps.png" width="1831" height="893" alt="MirrorSentinel retained maps across eight reflective-elevator traversals" loading="lazy"></a><figcaption><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">Source: MirrorSentinel official project</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">MirrorSentinel: Suppressing Mirror-Induced Ghost Structures in Elevator LiDAR Maps with Visual Depth</h3><p class="publication-authors">Yugong Wang, Shengzhe Gan, Yu Zhan, Zhuoli Ouyang, Chuyao Fu, <strong>Yitao Zeng</strong>, Hong Zhang</p><p class="publication-venue">Accepted · IEEE ROBIO 2026</p><p class="publication-note">My contribution: literature review and manuscript revision.</p><div class="publication-links"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">Project &amp; Code</a></div></div></article><article class="publication-item" id="perchrl"><figure class="publication-figure"><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer"><img src="images/perchrl-demo.png" width="964" height="500" alt="PerchRL paper Figure 1: visual reacquisition and perching on a moving inclined platform" loading="lazy"></a><figcaption><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer">Source: PerchRL paper, Figure 1</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">PerchRL: Vision-Based Agile Perching on Inclined Platforms under Rapid and Irregular Motion</h3><p class="publication-authors">Zihong Lu, Zongzhuo Liu, Huaxu Li, <strong>Yitao Zeng</strong>, …, Boyu Zhou</p><p class="publication-venue">Submitted · IEEE ICRA 2027</p><p class="publication-note">My contribution: UAV deployment and assistance with real-robot experiments.</p><div class="publication-links"><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer">Paper</a></div></div></article>
     </section>
-
-    <section id="projects">
+<section id="projects">
         <h2>Projects</h2>
         <h3 class="project-group-title">Selected Research &amp; Robotics</h3>
-
         <div class="project-item" id="agentic-rl-supervisor">
             <h4>Agentic RL Supervisor</h4>
             <p class="date">Jul. – Aug. 2026 · Personally led project</p>
@@ -776,7 +782,9 @@
             <p><a href="blog/agentic-rl-supervisor.html">Read the research note</a> &nbsp;·&nbsp; <a href="https://github.com/24zen0/agentic-rl-supervisor" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </div>
 
-        <div class="project-item">
+
+
+        <div class="project-item" id="aerial-grasping">
             <h4>Aerial Grasping Research — STAR Group</h4>
             <p class="date">Jun. 2026 – Present · STAR Group, SUSTech · Advisor: Prof. Boyu Zhou</p>
             <ul>
@@ -794,15 +802,12 @@
         </div>
 
         <!-- project during my internship at Galbot: -->
-        <div class="project-item">
-            <h4>Robot Learning Systems &amp; Data Engineering — Galbot</h4>
-            <p class="date">Jan. 2026 – Jul. 2026 · Mentored by Prof. He Wang</p>
-            <ul>
-                <li>Converted and validated a TFDS dataset into the project’s LeRobot representation using HPC resources.</li>
-                <li>Built and debugged a 3D Diffusion Policy-style depth-to-point-cloud baseline; used failure analysis to identify sim-to-real, coordinate/action, and deployment bottlenecks.</li>
-                <li>Supported robot-to-inference system integration and initial-pose testing for a separate test-model experiment.</li>
-                <li>Explored influence-function approaches to data curation for embodied learning.</li>
-            </ul>
+        <div class="project-item" id="galbot"><h4>Robot Learning, Foundation-Model Deployment, and Data Curation — Galbot</h4><p class="date">Jan 2026 – Jun 2026 · Embodied Intelligence Algorithm Department · Research group led by He Wang, Assistant Professor, Peking University</p><ul>
+<li>Surveyed depth-aware VLA policies and selected DP3 in response to StereoVLA reviewer feedback. Integrated a Dockerized ROS–Franka inference stack with ZED sensing and ZeroMQ communication to deploy the DP3 baseline for StereoVLA.</li>
+<li>Developed a parallel TFDS-to-LeRobot conversion pipeline for <strong>5 million complete SynGrasp-1B trajectories</strong>, reducing storage from <strong>20 TB to 5 TB (75%)</strong> with a <strong>99.5% conversion success rate</strong>; validated the converted data through real-robot deployment.</li>
+<li>Restored the robot motion-control system for real-world foundation-model deployment; analyzed initial poses in the simulation dataset to guide real-robot grasping experiments, achieving <strong>10/10 successful grasps from selected starting configurations</strong>.</li>
+<li>Reviewed robot-learning data curation methods and attempted to reproduce CUPID-based data selection for clothes folding, examining limitations related to task complexity and dataset suitability.</li>
+</ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/baseline dp3.png" alt="3D Diffusion Policy debugging visualization from the Galbot internship">
@@ -814,20 +819,15 @@
                     <img src="images/foundation models testing.png" alt="Robot-to-inference system integration and initial-pose testing">
                 </div>
             <a href="https://github.com/24zen0/4-months-work-during-internship/blob/main/曾亦陶的银河汇报4.25%20newest.pdf" target="_blank" rel="noopener noreferrer">
-            Technical Report
-        </a>        
+            Internship Progress Report (Apr. 2026)
+        </a>
             </div>
         </div>
-        
-        <div class="project-item">
-            <h4>3D Diffusion Policy for Real-Robot Desktop Manipulation</h4>
-            <p class="date">Feb. 2025 – Dec. 2025 · CLEAR Laboratory, SUSTech · Academic mentor: Prof. Wei Zhang</p>
-            <ul>
-                <li>Co-built and deployed a 3D Diffusion Policy pipeline for real-robot desktop manipulation.</li>
-                <li>Owned point-cloud preprocessing with workspace cropping and farthest-point sampling (1,024 points) for the DP3 input.</li>
-                <li>Participated in calibration, demonstration collection, training, and ROS-based deployment across a second full pipeline iteration.</li>
-                <li>Diagnosed persistent policy jitter and multi-step task failures, sharpening my interest in perception-to-action interfaces, demonstration coverage, and evaluation design.</li>
-            </ul>
+
+        <div class="project-item" id="diffusion-policy"><h4>Imitation Learning for Robotic Manipulation · Phase 1: 3D Diffusion Policy</h4><p class="date">Feb 2025 – Dec 2025 · SUSTech · Course Instructor: Max Q.-H. Meng, Chair Professor</p><ul>
+<li>Owned point-cloud preprocessing with workspace cropping and farthest-point sampling for a team-built 3D Diffusion Policy pipeline; participated in camera calibration, demonstration collection, policy training, and ROS deployment.</li>
+<li>Evaluated four tasks (<strong>20 trials each</strong>): bowl picking (<strong>70%</strong>), drawer closing (<strong>100%</strong>), lemon placement in a bowl (<strong>30%</strong>), and a lemon–drawer sequence (<strong>10%</strong>). Multi-step execution remained unreliable.</li>
+</ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/dp3_pic.png" alt="Desktop Cleaning by Robotic Arm via 3D Diffusion Policy">
@@ -846,18 +846,19 @@
         </a>
             <a href="https://github.com/24zen0/Desktop-Cleaning-via-3D-Diffusion-Policy/blob/main/Desktop%20Cleaning%20by%20Robotic%20Arm%20via%203D%20Diffusion%20Policy%20ppt.pdf" target="_blank" rel="noopener noreferrer">
             Presentation
-        </a>        
+        </a>
+        <a href="https://github.com/24zen0/depth-to-pointcloud-for-dp3" target="_blank" rel="noopener noreferrer">Point-cloud Code</a>
             </div>
         </div>
-        <div class="project-item">
-            <h4>Reinforcement Learning for Point-Foot and Wheel-Legged Locomotion</h4>
-            <p class="date">Jun. 2025 – Jan. 2026 · Coursework, Competition &amp; Technical Report · Academic mentor: Prof. Wei Zhang</p>
-            <ul>
-                <li>Started with a point-foot locomotion project in Isaac Gym, then adapted the system to a wheel-legged platform for competition deployment.</li>
-                <li>Refined reward settings and motion constraints for wheel-legged stair climbing, including leg-clearance constraints and asynchronous leg behavior.</li>
-                <li>Returned to point-foot locomotion in Isaac Lab and Isaac Sim, adding disturbance evaluations and a larger, more challenging training curriculum.</li>
-                <li>Expanded the third-stage analysis in a technical report; in the competition setting, our wheel-legged system completed a documented 18 cm real-stair task in 10/10 attempts.</li>
-            </ul>
+        <div class="project-item" id="iron-bestie"><h4>Imitation Learning for Robotic Manipulation · Phase 2: Iron Bestie</h4><p class="date">Aug 2026 – Present · Five-person hackathon project</p><ul>
+<li>A five-person hackathon project that combined agent orchestration, speech interaction, visual perception, and robotic-arm skills for cosmetics organization and personalized assistance.</li>
+<li>Led NERO arm assembly and networking, demonstration collection, ACT training and deployment, and MCP–Agent integration. Coordinated team tasks and delivered the main presentation in English.</li>
+</ul><p><a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer">South China Morning Post interview &amp; coverage</a></p></div>
+<div class="project-item" id="locomotion"><h4>Reinforcement Learning for Bipedal and Wheel-Legged Locomotion</h4><p class="date">Jul 2025 – Jan 2026 · LimX Dynamics TRON Camp &amp; follow-up experiments</p><ul>
+<li>Trained a point-foot locomotion policy in Isaac Sim and evaluated sim-to-sim transfer in MuJoCo for the preliminary stage. Tested traversal over uneven terrain, slopes, and stairs under external disturbances.</li>
+<li>In follow-up point-foot simulation experiments, implemented direction-decoupling reward terms and evaluated velocity-tracking errors and responses to external pushes.</li>
+<li>Independently adapted and deployed a locomotion policy on a wheel-legged robot for the finals, completing <strong>five successful climbs in five trials on an 18 cm physical stair</strong> as a bonus challenge.</li>
+</ul>
             <div class="project-gallery">
                 <div class="project-media">
                     <img src="images/pointfoot_env.png" alt="Pointfoot robot walking on different terrains">
@@ -867,27 +868,22 @@
                         <source src="videos/RL_pointfoot.mp4" type="video/mp4">
                         Your browser does not support video playback.
                     </video>
-                </div>              
+                </div>
                 <div class="project-media">
                     <video controls preload="metadata" aria-label="Wheel-legged robot stair-climbing demo">
                         <source src="videos/Wheelfoot_stairs.mp4" type="video/mp4">
                         Your browser does not support video playback.
                     </video>
                 </div>
-            <a href="https://github.com/24zen0/OCE_Final_Project/blob/main/Code%20explanation%20for%20Pointfoot%20robot.pdf" target="_blank" rel="noopener noreferrer">
-            Code Structure Report
-        </a>
-            <a href="https://github.com/24zen0/Deployment_of_wheelfoot_tron" target="_blank" rel="noopener noreferrer">
-            Wheel-Foot GitHub
-        </a>      
         <a href="files/RL_Locomotion_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">
-            Point-Foot Technical Report
+            Technical Report
         </a>
         <a href="https://github.com/24zen0/2026RL_bipedal_locomotion_Isaaclab" target="_blank" rel="noopener noreferrer">
-            Isaac Lab GitHub
+            GitHub
         </a>
             </div>
-        </div>
+        <p class="publication-note">The technical report and GitHub cover the point-foot simulation experiments; the video above shows the wheel-legged competition deployment.</p>
+</div>
 
         <h3 class="project-group-title">Additional Course Projects</h3>
 
@@ -905,7 +901,7 @@
                 </div>
                 <div class="project-media">
                     <img src="images/motion_capture_uav.png" alt="Motion-capture setup for the UAV suspended-load experiment">
-                </div>                
+                </div>
                 <div class="project-media">
                     <video controls preload="metadata" aria-label="UAV suspended-load experiment demo">
                         <source src="videos/UAV suspension.mp4" type="video/mp4">
@@ -931,7 +927,7 @@
                 </div>
                 <div class="project-media">
                     <img src="images/Intelligent scissors2.png" alt="Boundary-selection result from the Intelligent Scissors tool">
-                </div>                
+                </div>
                 <div class="project-media">
                     <video controls preload="metadata" aria-label="Intelligent Scissors interaction demo">
                         <source src="videos/Intelligent Scissors.mp4" type="video/mp4">
@@ -942,7 +938,7 @@
             Project Report
         </a>
             </div>
-        </div>     
+        </div>
 
         <div class="project-item">
             <h4>Household Electricity Load Forecasting</h4>
@@ -960,12 +956,12 @@
             Project Report
         </a>
             </div>
-        </div>  
+        </div>
     </section>
-    </main>
+</main>
 
     <footer>
-        <p>Last updated: August 12, 2026 · Research website built with HTML/CSS and hosted on GitHub Pages</p>
+        <p>Last updated: October 25, 2026 · Research website built with HTML/CSS and hosted on GitHub Pages</p>
     </footer>
 </body>
 </html>
