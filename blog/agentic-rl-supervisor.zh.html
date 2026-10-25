@@ -51,10 +51,11 @@
 </li>
 </ol>
 <h2 id="section-3">一个成功的例子</h2>
-<p>最明确的一次成功发生在抓取 curriculum 的 Stage 20。晋级要求抓取成功率连续三次评估达到至少 <code>75%</code>。这轮训练曾短暂达到 <code>76.0%</code>，随后回退到 <code>69.8%</code>。</p>
+<p>本示例中，有效闭爪指夹爪在满足课程规定的目标相对位置、姿态与速度条件时完成闭合；有效闭爪成功率是满足该判据的评估回合占比。</p>
+<p>最明确的一次成功发生在抓取 curriculum 的 Stage 20。晋级要求有效闭爪成功率连续三次评估达到至少 <code>75%</code>。这轮训练曾短暂达到 <code>76.0%</code>，随后回退到 <code>69.8%</code>。</p>
 <p>Agent 首先降低了策略中夹爪部分的 learning rate，使参数更新更保守，并从一个经过验证的 Stage 20 checkpoint 恢复训练。表现有所回升，但仍不稳定。下一次检查时，Agent 提高了夹爪在合适时机闭合所获得的 reward，让这个稀疏事件提供更强的学习信号。</p>
 <p>之后的一轮训练连续三次评估分别达到 <code>76.54%</code>、<code>76.32%</code> 和 <code>75.46%</code>。训练满足了晋级规则，进入 Stage 21。</p>
-<figure><a class="figure-link" href="assets/stage20-trace.svg" target="_blank" rel="noopener"><img src="assets/stage20-trace.svg" alt="记录中的 Stage 20 抓取成功率曲线" width="1120" height="510" loading="lazy"></a><figcaption>记录中的 Stage 20 抓取成功率曲线</figcaption></figure>
+<figure><a class="figure-link" href="assets/stage20-trace.svg" target="_blank" rel="noopener"><img src="assets/stage20-trace.svg" alt="记录中的 Stage 20 有效闭爪成功率曲线" width="1120" height="510" loading="lazy"></a><figcaption>记录中的 Stage 20 有效闭爪成功率曲线</figcaption></figure>
 <p><em>图中展示的是两次干预前后的连续观测结果，不能单独证明任一参数调整的因果效果。</em></p>
 <p>对我而言，这表明 Agent 识别出了趋势、提出了局部修改、选用了兼容的 checkpoint，并推动实验继续进行，直到进入下一个 stage。它提供的不只是建议：Supervisor 接受了它的提案，Trainer 也执行了相应操作。</p>
 <h2 id="section-4">局限与下一步</h2>

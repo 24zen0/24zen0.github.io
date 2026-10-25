@@ -51,10 +51,11 @@
 </li>
 </ol>
 <h2 id="section-3">A successful example</h2>
-<p>The clearest success occurred at Stage 20 of the grasping curriculum. Promotion required three consecutive evaluations with at least <code>75%</code> grasp success. The run briefly reached <code>76.0%</code>, then regressed to <code>69.8%</code>.</p>
+<p>In this example, a valid closure is a gripper-closing event that satisfies the curriculum’s specified target-relative position, orientation, and velocity conditions. The valid-closure success rate is the fraction of evaluated episodes meeting that criterion.</p>
+<p>The clearest success occurred at Stage 20 of the grasping curriculum. Promotion required three consecutive evaluations with at least <code>75%</code> valid-closure success. The run briefly reached <code>76.0%</code>, then regressed to <code>69.8%</code>.</p>
 <p>The agent first reduced the learning rate for the gripper part of the policy, making its updates more conservative, and resumed from a verified Stage 20 checkpoint. Performance recovered but was still inconsistent. In the next review, the agent increased the reward for closing the gripper at a valid moment, giving that sparse event a stronger learning signal.</p>
 <p>A later run recorded <code>76.54%</code>, <code>76.32%</code>, and <code>75.46%</code> in three consecutive evaluations. Training passed the promotion rule and entered Stage 21.</p>
-<figure><a class="figure-link" href="assets/stage20-trace.svg" target="_blank" rel="noopener"><img src="assets/stage20-trace.svg" alt="Recorded Stage 20 grasp-success trace" width="1120" height="510" loading="lazy"></a><figcaption>Recorded Stage 20 grasp-success trace</figcaption></figure>
+<figure><a class="figure-link" href="assets/stage20-trace.svg" target="_blank" rel="noopener"><img src="assets/stage20-trace.svg" alt="Recorded Stage 20 valid-closure trace" width="1120" height="510" loading="lazy"></a><figcaption>Recorded Stage 20 valid-closure trace</figcaption></figure>
 <p><em>The chart shows consecutive observations before and after two interventions, not the independent causal effect of either parameter change.</em></p>
 <p>For me, this showed that the agent recognized a trend, proposed local changes, selected a compatible checkpoint, and continued the experiment until the next Stage. It was more than advice; it was an action that the supervisor accepted and the trainer carried out.</p>
 <h2 id="section-4">Limitations and next steps</h2>

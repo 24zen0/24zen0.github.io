@@ -669,6 +669,10 @@
         .project-item .publication-note { margin-top: 16px; font-size: .86rem; }
         .publication-figure figcaption { margin-top: 10px; font-size: .76rem; color: var(--muted); }
         .publication-figure figcaption a { color: var(--accent-dark); }
+
+        .video-panel { margin: 0; min-height: 0; }
+        .video-panel video { height: auto; min-height: 0; aspect-ratio: 16 / 9; object-fit: contain; background: #10211e; }
+        .video-panel figcaption { padding: 10px 14px; font-size: .82rem; line-height: 1.5; color: var(--muted); }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -677,10 +681,10 @@
         <p class="eyebrow">Robot Learning · Embodied AI</p>
         <h1>Yitao Zeng</h1>
         <p class="role">Undergraduate researcher developing learning-based robots that perceive, move, and act in the real world.</p>
-        <p class="affiliation">SUSTech · STAR Group · RSS 2026 Co-author</p>
+        <p class="affiliation">SUSTech · STAR Group · StereoVLA Co-author</p>
         <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#news">News</a>
             <a href="#about">About</a>
+            <a href="#news">News</a>
             <a href="#publications">Publications</a>
             <a href="#projects">Projects</a>
             <a class="language-link" href="zh.html" lang="zh-CN">中文</a>
@@ -707,6 +711,15 @@
     </header>
 
     <main>
+<section class="intro" id="about">
+        <img class="intro-photo" src="images/个人照片.jpg" alt="Yitao Zeng operating a quadruped robot during a robotics competition">
+        <div class="intro-text">
+            <p>I’m a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech). Ranked 2nd out of 35 students.</p>
+            <p>Currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. <strong>Boyu Zhou</strong>. Previously, I was mentored by Prof. <strong>He Wang</strong> during a research internship at Galbot.</p>
+            <p>My research interests center on <strong>Agent-driven Robot Learning</strong> and <strong>Robust Real-world Robot Deployment</strong>.</p>
+            <p>I am seeking PhD or MPhil opportunities for Fall 2027, as well as research assistant positions, research collaborations, and embodied-AI roles in industry.</p>
+        </div>
+    </section>
 <section id="news">
         <h2>News</h2>
         <div class="news-card">
@@ -734,7 +747,7 @@
                 </li>
                 <li>
                     <time class="news-date" datetime="2026-05-11">May 11, 2026</time>
-                    <span>Co-authored <a class="inline-link" href="#publications"><em>StereoVLA</em></a>, accepted to Robotics: Science and Systems (RSS) 2026. I am deeply grateful to Shengliang Deng and Mi Yan for the opportunity to contribute to this work.</span>
+                    <span>Contributed to <a class="inline-link" href="#publications"><em>StereoVLA</em></a> through dataset conversion and depth-aware baseline support. I am deeply grateful to Shengliang Deng and Mi Yan for the opportunity to contribute to this work.</span>
                 </li>
                 <li>
                     <time class="news-date" datetime="2026-01-21">Jan. 21, 2026</time>
@@ -743,14 +756,7 @@
             </ul>
         </div>
     </section>
-<section class="intro" id="about">
-        <img class="intro-photo" src="images/个人照片.jpg" alt="Yitao Zeng operating a quadruped robot during a robotics competition">
-        <div class="intro-text">
-            <p>I’m a senior undergraduate in Automation Engineering at the Southern University of Science and Technology (SUSTech). Ranked 2nd out of 35 students.</p>
-            <p>Currently a research intern with the Smart Autonomous Robotics (STAR) Group, advised by Prof. <strong>Boyu Zhou</strong>. Previously, I was mentored by Prof. <strong>He Wang</strong> during a research internship at Galbot.</p>
-            <p>My research centers on agents and robot learning: enabling agents to understand the 3D and physical world, compose robot skills for decision-making and closed-loop action, and support autonomous scientific research. I am also interested in cognitively inspired embodied intelligence and outdoor robot learning for emergency-response and rescue scenarios.</p>
-        </div>
-    </section>
+
 <section id="publications">
         <h2>Publications</h2>
         <article class="publication-item">
@@ -759,8 +765,8 @@
             </figure>
             <div class="publication-content">
                 <h3 class="publication-title">StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision</h3>
-                <p class="publication-authors">Shengliang Deng<sup>*</sup>, Mi Yan<sup>*</sup>, Yixin Zheng, Jiayi Su, Wenhao Zhang, <strong>Yitao Zeng</strong>, …, He Wang</p>
-                <p class="publication-venue">Accepted · Robotics: Science and Systems (RSS), 2026</p>
+                <p class="publication-authors">Shengliang Deng<sup>*</sup>, Mi Yan<sup>*</sup>, Yixin Zheng<sup>*</sup>, Jiayi Su, Wenhao Zhang, <strong>Yitao Zeng</strong>, …, He Wang</p>
+                <p class="publication-venue">Preprint · 2026 · arXiv:2512.21970</p>
                 <p class="publication-summary">StereoVLA equips vision-language-action models with stereo-derived geometric cues, enabling more precise manipulation and stronger robustness to large camera-viewpoint variations.</p>
                 <p class="publication-note"><sup>*</sup> Equal contribution.</p>
                 <p class="publication-note">My contribution: dataset conversion and depth-aware baseline support.</p><div class="publication-links" aria-label="StereoVLA resources">
@@ -770,7 +776,7 @@
                 </div>
             </div>
         </article>
-<article class="publication-item" id="mirrorsentinel"><figure class="publication-figure"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer"><img src="images/mirrorsentinel-maps.png" width="1831" height="893" alt="MirrorSentinel retained maps across eight reflective-elevator traversals" loading="lazy"></a><figcaption><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">Source: MirrorSentinel official project</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">MirrorSentinel: Suppressing Mirror-Induced Ghost Structures in Elevator LiDAR Maps with Visual Depth</h3><p class="publication-authors">Yugong Wang, Shengzhe Gan, Yu Zhan, Zhuoli Ouyang, Chuyao Fu, <strong>Yitao Zeng</strong>, Hong Zhang</p><p class="publication-venue">Accepted · IEEE ROBIO 2026</p><p class="publication-note">My contribution: literature review and manuscript revision.</p><div class="publication-links"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">Project &amp; Code</a></div></div></article><article class="publication-item" id="perchrl"><figure class="publication-figure"><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer"><img src="images/perchrl-demo.png" width="964" height="500" alt="PerchRL paper Figure 1: visual reacquisition and perching on a moving inclined platform" loading="lazy"></a><figcaption><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer">Source: PerchRL paper, Figure 1</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">PerchRL: Vision-Based Agile Perching on Inclined Platforms under Rapid and Irregular Motion</h3><p class="publication-authors">Zihong Lu, Zongzhuo Liu, Huaxu Li, <strong>Yitao Zeng</strong>, …, Boyu Zhou</p><p class="publication-venue">Submitted · IEEE ICRA 2027</p><p class="publication-note">My contribution: UAV deployment and assistance with real-robot experiments.</p><div class="publication-links"><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer">Paper</a></div></div></article>
+<article class="publication-item" id="mirrorsentinel"><figure class="publication-figure"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer"><img src="images/mirrorsentinel-maps.png" width="1831" height="893" alt="MirrorSentinel retained maps across eight reflective-elevator traversals" loading="lazy"></a><figcaption><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">Source: MirrorSentinel official project</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">MirrorSentinel: Suppressing Mirror-Induced Ghost Structures in Elevator LiDAR Maps with Visual Depth</h3><p class="publication-authors">Yugong Wang, Shengzhe Gan, Yu Zhan, Zhuoli Ouyang, Chuyao Fu, <strong>Yitao Zeng</strong>, Hong Zhang</p><p class="publication-venue">Accepted · IEEE ROBIO 2026</p><p class="publication-note">My contribution: literature review and manuscript revision.</p><div class="publication-links"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">Project &amp; Code</a></div></div></article><article class="publication-item" id="perchrl"><figure class="publication-figure"><a href="https://arxiv.org/abs/2606.03441" target="_blank" rel="noopener noreferrer"><img src="images/perchrl-demo.png" width="964" height="500" alt="PerchRL paper Figure 1: visual reacquisition and perching on a moving inclined platform" loading="lazy"></a><figcaption><a href="https://arxiv.org/abs/2606.03441" target="_blank" rel="noopener noreferrer">Source: PerchRL paper, Figure 1</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">PerchRL: Vision-Based Agile Perching on Inclined Platforms under Rapid and Irregular Motion</h3><p class="publication-authors">Zihong Lu, Zongzhuo Liu, Huaxu Li, <strong>Yitao Zeng</strong>, …, Boyu Zhou</p><p class="publication-venue">Submitted · IEEE ICRA 2027</p><p class="publication-note">My contribution: UAV deployment and assistance with real-robot experiments.</p><div class="publication-links"><a href="https://arxiv.org/abs/2606.03441" target="_blank" rel="noopener noreferrer">Paper</a></div></div></article>
     </section>
 <section id="projects">
         <h2>Projects</h2>
@@ -788,23 +794,21 @@
             <h4>Aerial Grasping Research — STAR Group</h4>
             <p class="date">Jun. 2026 – Present · STAR Group, SUSTech · Advisor: Prof. Boyu Zhou</p>
             <ul>
-                <li>Ongoing physical-UAV aerial-grasping research.</li>
+                <li>Led deployment of an RL-based aerial-grasping UAV, achieving 7 successful stationary-bottle grasps in 10 trials at 1.8 m/s using onboard D455 perception. Developed target-state estimation with temporal alignment, pose propagation, and Kalman filtering, and addressed gripper-closing latency through time-shifted teacher supervision for anticipatory closure.</li>
                 <li>Paper in preparation.</li>
             </ul>
             <div class="project-gallery">
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="STAR UAV aerial-grasping demo">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/star_uav_aerial_grasping_demo.jpg" aria-label="STAR UAV aerial-grasping demo">
                         <source src="videos/star_uav_aerial_grasping_demo.mp4" type="video/mp4">
                         Your browser does not support video playback.
-                    </video>
-                </div>
+                    </video><figcaption>Physical-UAV aerial-grasping demonstration.</figcaption></figure>
             </div>
         </div>
 
         <!-- project during my internship at Galbot: -->
         <div class="project-item" id="galbot"><h4>Robot Learning, Foundation-Model Deployment, and Data Curation — Galbot</h4><p class="date">Jan 2026 – Jun 2026 · Embodied Intelligence Algorithm Department · Research group led by He Wang, Assistant Professor, Peking University</p><ul>
-<li>Surveyed depth-aware VLA policies and selected DP3 in response to StereoVLA reviewer feedback. Integrated a Dockerized ROS–Franka inference stack with ZED sensing and ZeroMQ communication to deploy the DP3 baseline for StereoVLA.</li>
-<li>Developed a parallel TFDS-to-LeRobot conversion pipeline for <strong>5 million complete SynGrasp-1B trajectories</strong>, reducing storage from <strong>20 TB to 5 TB (75%)</strong> with a <strong>99.5% conversion success rate</strong>; validated the converted data through real-robot deployment.</li>
+<li>Surveyed depth-aware VLA policies and selected DP3 in response to StereoVLA reviewer feedback. Integrated a Dockerized ROS–Franka inference stack with ZED sensing and ZeroMQ communication for StereoVLA baseline adaptation and deployment support.</li>
+<li>Developed a parallel TFDS-to-LeRobot conversion pipeline for <strong>5 million input SynGrasp-1B trajectories</strong>, achieving a <strong>99.5% trajectory conversion success rate</strong> and reducing storage for the same dataset from <strong>20 TB to 5 TB (75%)</strong>.</li>
 <li>Restored the robot motion-control system for real-world foundation-model deployment; analyzed initial poses in the simulation dataset to guide real-robot grasping experiments, achieving <strong>10/10 successful grasps from selected starting configurations</strong>.</li>
 <li>Reviewed robot-learning data curation methods and attempted to reproduce CUPID-based data selection for clothes folding, examining limitations related to task complexity and dataset suitability.</li>
 </ul>
@@ -832,12 +836,10 @@
                 <div class="project-media">
                     <img src="images/dp3_pic.png" alt="Desktop Cleaning by Robotic Arm via 3D Diffusion Policy">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="3D Diffusion Policy real-robot manipulation demo">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/dp3_demo.jpg" aria-label="3D Diffusion Policy real-robot manipulation demo">
                         <source src="videos/dp3_demo.mp4" type="video/mp4">
                         Your browser does not support video playback.
-                    </video>
-                </div>
+                    </video><figcaption>3D Diffusion Policy manipulation on an ARX arm.</figcaption></figure>
             <a href="files/3D_Diffusion_Policy_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">
             Project Report
         </a>
@@ -853,7 +855,9 @@
         <div class="project-item" id="iron-bestie"><h4>Imitation Learning for Robotic Manipulation · Phase 2: Iron Bestie</h4><p class="date">Aug 2026 – Present · Five-person hackathon project</p><ul>
 <li>A five-person hackathon project that combined agent orchestration, speech interaction, visual perception, and robotic-arm skills for cosmetics organization and personalized assistance.</li>
 <li>Led NERO arm assembly and networking, demonstration collection, ACT training and deployment, and MCP–Agent integration. Coordinated team tasks and delivered the main presentation in English.</li>
-</ul><p><a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer">South China Morning Post interview &amp; coverage</a></p></div>
+</ul>
+<div class="project-gallery"><figure class="project-media video-panel"><video controls preload="none" poster="images/posters/iron_bestie_act.jpg" aria-label="Physical-arm deployment of an ACT manipulation skill."><source src="videos/iron_bestie_act.mp4" type="video/mp4"></video><figcaption>Physical-arm deployment of an ACT manipulation skill.</figcaption></figure><figure class="project-media video-panel"><video controls preload="none" poster="images/posters/iron_bestie_full.jpg" aria-label="Full project demonstration: speech interaction, agent orchestration, and robotic-arm assistance."><source src="videos/iron_bestie_full.mp4" type="video/mp4"></video><figcaption>Full project demonstration: speech interaction, agent orchestration, and robotic-arm assistance.</figcaption></figure></div>
+<p><a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer">South China Morning Post interview &amp; coverage</a></p></div>
 <div class="project-item" id="locomotion"><h4>Reinforcement Learning for Bipedal and Wheel-Legged Locomotion</h4><p class="date">Jul 2025 – Jan 2026 · LimX Dynamics TRON Camp &amp; follow-up experiments</p><ul>
 <li>Trained a point-foot locomotion policy in Isaac Sim and evaluated sim-to-sim transfer in MuJoCo for the preliminary stage. Tested traversal over uneven terrain, slopes, and stairs under external disturbances.</li>
 <li>In follow-up point-foot simulation experiments, implemented direction-decoupling reward terms and evaluated velocity-tracking errors and responses to external pushes.</li>
@@ -863,18 +867,14 @@
                 <div class="project-media">
                     <img src="images/pointfoot_env.png" alt="Pointfoot robot walking on different terrains">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="Point-foot reinforcement-learning locomotion demo">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/RL_pointfoot.jpg" aria-label="Point-foot reinforcement-learning locomotion demo">
                         <source src="videos/RL_pointfoot.mp4" type="video/mp4">
                         Your browser does not support video playback.
-                    </video>
-                </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="Wheel-legged robot stair-climbing demo">
+                    </video><figcaption>Point-foot locomotion in simulation.</figcaption></figure>
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/Wheelfoot_stairs.jpg" aria-label="Wheel-legged robot stair-climbing demo">
                         <source src="videos/Wheelfoot_stairs.mp4" type="video/mp4">
                         Your browser does not support video playback.
-                    </video>
-                </div>
+                    </video><figcaption>Wheel-legged robot stair climbing on hardware.</figcaption></figure>
         <a href="files/RL_Locomotion_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">
             Technical Report
         </a>
@@ -902,12 +902,10 @@
                 <div class="project-media">
                     <img src="images/motion_capture_uav.png" alt="Motion-capture setup for the UAV suspended-load experiment">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="UAV suspended-load experiment demo">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/UAV_suspension.jpg" aria-label="UAV suspended-load experiment demo">
                         <source src="videos/UAV suspension.mp4" type="video/mp4">
                         Your browser does not support video playback.
-                    </video>
-                </div>
+                    </video><figcaption>UAV suspended-load experiment.</figcaption></figure>
             <a href="https://github.com/24zen0/Modeling-and-Experiment-of-UAV-Heavy-Object-Suspension-System/blob/main/UAV%20Modeling%20and%20Real-World%20Experiments.pdf" target="_blank" rel="noopener noreferrer">
             Project Report
         </a>
@@ -928,12 +926,10 @@
                 <div class="project-media">
                     <img src="images/Intelligent scissors2.png" alt="Boundary-selection result from the Intelligent Scissors tool">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="Intelligent Scissors interaction demo">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/Intelligent_Scissors.jpg" aria-label="Intelligent Scissors interaction demo">
                         <source src="videos/Intelligent Scissors.mp4" type="video/mp4">
                         Your browser does not support video playback.
-                    </video>
-                </div>
+                    </video><figcaption>Interactive image-boundary selection and interface demo.</figcaption></figure>
             <a href="https://github.com/24zen0/Intelligent_Scissors_for_dsaa/blob/main/CS203B%20Project-Intelligent%20Scissors-2.pdf" target="_blank" rel="noopener noreferrer">
             Project Report
         </a>
@@ -961,7 +957,7 @@
 </main>
 
     <footer>
-        <p>Last updated: October 25, 2026 · Research website built with HTML/CSS and hosted on GitHub Pages</p>
+        <p>Last updated: October 26, 2026 · Research website built with HTML/CSS and hosted on GitHub Pages</p>
     </footer>
 </body>
 </html>

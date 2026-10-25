@@ -669,6 +669,10 @@
         .project-item .publication-note { margin-top: 16px; font-size: .86rem; }
         .publication-figure figcaption { margin-top: 10px; font-size: .76rem; color: var(--muted); }
         .publication-figure figcaption a { color: var(--accent-dark); }
+
+        .video-panel { margin: 0; min-height: 0; }
+        .video-panel video { height: auto; min-height: 0; aspect-ratio: 16 / 9; object-fit: contain; background: #10211e; }
+        .video-panel figcaption { padding: 10px 14px; font-size: .82rem; line-height: 1.5; color: var(--muted); }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -679,8 +683,8 @@
         <p class="role">致力于开发能够在真实世界中感知、决策与行动的机器人。</p>
         <p class="affiliation">南方科技大学 · STAR 实验室 · RSS 2026 论文合著者</p>
         <nav class="site-nav" aria-label="主导航">
-            <a href="#news">动态</a>
             <a href="#about">简介</a>
+            <a href="#news">动态</a>
             <a href="#publications">论文</a>
             <a href="#projects">项目</a>
             <a class="language-link" href="index.html" lang="en">English</a>
@@ -707,6 +711,15 @@
     </header>
 
     <main>
+<section class="intro" id="about">
+        <img class="intro-photo" src="images/个人照片.jpg" alt="曾亦陶在机器人竞赛中操作四足机器人">
+        <div class="intro-text">
+            <p>我是南方科技大学自动化专业大四本科生，专业排名第 2/35。</p>
+            <p>目前，我在智能自主机器人（STAR）实验室担任科研实习生，由<strong>周博宇教授</strong>指导。此前，我曾在银河通用机器人科研实习期间接受<strong>王鹤教授</strong>指导。</p>
+            <p>我的研究方向是 <strong>Agent-driven Robot Learning</strong> 与 <strong>Robust Real-world Robot Deployment</strong>。</p>
+            <p>我正在寻找 Fall 2027 的 PhD / MPhil 机会，以及科研助理（RA）、潜在科研合作和企业具身智能岗位。</p>
+        </div>
+    </section>
 <section id="news">
         <h2>动态</h2>
         <div class="news-card">
@@ -734,7 +747,7 @@
                 </li>
                 <li>
                     <time class="news-date" datetime="2026-05-11">2026 年 5 月 11 日</time>
-                    <span>参与合著的 <a class="inline-link" href="#publications"><em>StereoVLA</em></a> 被 Robotics: Science and Systems（RSS）2026 接收。衷心感谢邓胜亮和严汨给予我参与这项工作的机会。</span>
+                    <span>通过数据格式转换与深度感知 baseline 支持，参与 <a class="inline-link" href="#publications"><em>StereoVLA</em></a>。衷心感谢邓胜亮和严汨给予我参与这项工作的机会。</span>
                 </li>
                 <li>
                     <time class="news-date" datetime="2026-01-21">2026 年 1 月 21 日</time>
@@ -743,14 +756,7 @@
             </ul>
         </div>
     </section>
-<section class="intro" id="about">
-        <img class="intro-photo" src="images/个人照片.jpg" alt="曾亦陶在机器人竞赛中操作四足机器人">
-        <div class="intro-text">
-            <p>我是南方科技大学自动化专业大四本科生，专业排名第 2/35。</p>
-            <p>目前，我在智能自主机器人（STAR）实验室担任科研实习生，由<strong>周博宇教授</strong>指导。此前，我曾在银河通用机器人科研实习期间接受<strong>王鹤教授</strong>指导。</p>
-            <p>我的研究聚焦于 Agent 与 robot learning：让 Agent 理解三维空间和物理世界，调用机器人技能进行决策与闭环行动，并探索自动化科研。我也关注受认知科学启发的具身智能，以及面向应急救援场景的户外 robot learning。</p>
-        </div>
-    </section>
+
 <section id="publications">
         <h2>论文</h2>
         <article class="publication-item">
@@ -759,8 +765,8 @@
             </figure>
             <div class="publication-content">
                 <h3 class="publication-title" lang="en">StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision</h3>
-                <p class="publication-authors">Shengliang Deng<sup>*</sup>, Mi Yan<sup>*</sup>, Yixin Zheng, Jiayi Su, Wenhao Zhang, <strong>Yitao Zeng</strong>, …, He Wang</p>
-                <p class="publication-venue">已接收 · Robotics: Science and Systems (RSS), 2026</p>
+                <p class="publication-authors">Shengliang Deng<sup>*</sup>, Mi Yan<sup>*</sup>, Yixin Zheng<sup>*</sup>, Jiayi Su, Wenhao Zhang, <strong>Yitao Zeng</strong>, …, He Wang</p>
+                <p class="publication-venue">预印本 · 2026 · arXiv:2512.21970</p>
                 <p class="publication-summary">StereoVLA 将双目视觉提供的几何信息引入 VLA，以提升操作精度及其对相机视角大幅变化的鲁棒性。</p>
                 <p class="publication-note"><sup>*</sup> 共同贡献。</p>
                 <p class="publication-note">我的贡献：数据格式转换与深度感知 baseline 支持。</p><div class="publication-links" aria-label="StereoVLA 相关资源">
@@ -770,7 +776,7 @@
                 </div>
             </div>
         </article>
-<article class="publication-item" id="mirrorsentinel"><figure class="publication-figure"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer"><img src="images/mirrorsentinel-maps.png" width="1831" height="893" alt="MirrorSentinel retained maps across eight reflective-elevator traversals" loading="lazy"></a><figcaption><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">图源：MirrorSentinel 官方项目</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">MirrorSentinel: Suppressing Mirror-Induced Ghost Structures in Elevator LiDAR Maps with Visual Depth</h3><p class="publication-authors">Yugong Wang, Shengzhe Gan, Yu Zhan, Zhuoli Ouyang, Chuyao Fu, <strong>Yitao Zeng</strong>, Hong Zhang</p><p class="publication-venue">已接收 · IEEE ROBIO 2026</p><p class="publication-note">我的贡献：文献调研与论文修改。</p><div class="publication-links"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">项目与代码</a></div></div></article><article class="publication-item" id="perchrl"><figure class="publication-figure"><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer"><img src="images/perchrl-demo.png" width="964" height="500" alt="PerchRL paper Figure 1: visual reacquisition and perching on a moving inclined platform" loading="lazy"></a><figcaption><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer">图源：PerchRL 论文，图 1</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">PerchRL: Vision-Based Agile Perching on Inclined Platforms under Rapid and Irregular Motion</h3><p class="publication-authors">Zihong Lu, Zongzhuo Liu, Huaxu Li, <strong>Yitao Zeng</strong>, …, Boyu Zhou</p><p class="publication-venue">已投稿 · IEEE ICRA 2027</p><p class="publication-note">我的贡献：无人机部署与真机实验协助。</p><div class="publication-links"><a href="https://arxiv.org/abs/2606.03441v2" target="_blank" rel="noopener noreferrer">论文</a></div></div></article>
+<article class="publication-item" id="mirrorsentinel"><figure class="publication-figure"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer"><img src="images/mirrorsentinel-maps.png" width="1831" height="893" alt="MirrorSentinel retained maps across eight reflective-elevator traversals" loading="lazy"></a><figcaption><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">图源：MirrorSentinel 官方项目</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">MirrorSentinel: Suppressing Mirror-Induced Ghost Structures in Elevator LiDAR Maps with Visual Depth</h3><p class="publication-authors">Yugong Wang, Shengzhe Gan, Yu Zhan, Zhuoli Ouyang, Chuyao Fu, <strong>Yitao Zeng</strong>, Hong Zhang</p><p class="publication-venue">已接收 · IEEE ROBIO 2026</p><p class="publication-note">我的贡献：文献调研与论文修改。</p><div class="publication-links"><a href="https://github.com/KvnWong216/MirrorSentinel" target="_blank" rel="noopener noreferrer">项目与代码</a></div></div></article><article class="publication-item" id="perchrl"><figure class="publication-figure"><a href="https://arxiv.org/abs/2606.03441" target="_blank" rel="noopener noreferrer"><img src="images/perchrl-demo.png" width="964" height="500" alt="PerchRL paper Figure 1: visual reacquisition and perching on a moving inclined platform" loading="lazy"></a><figcaption><a href="https://arxiv.org/abs/2606.03441" target="_blank" rel="noopener noreferrer">图源：PerchRL 论文，图 1</a></figcaption></figure><div class="publication-content"><h3 class="publication-title" lang="en">PerchRL: Vision-Based Agile Perching on Inclined Platforms under Rapid and Irregular Motion</h3><p class="publication-authors">Zihong Lu, Zongzhuo Liu, Huaxu Li, <strong>Yitao Zeng</strong>, …, Boyu Zhou</p><p class="publication-venue">已投稿 · IEEE ICRA 2027</p><p class="publication-note">我的贡献：无人机部署与真机实验协助。</p><div class="publication-links"><a href="https://arxiv.org/abs/2606.03441" target="_blank" rel="noopener noreferrer">论文</a></div></div></article>
     </section>
 <section id="projects">
         <h2>项目</h2>
@@ -788,23 +794,21 @@
             <h4>空中抓取研究 — STAR 实验室</h4>
             <p class="date">2026 年 6 月至今 · 南方科技大学 STAR 实验室 · 导师：周博宇教授</p>
             <ul>
-                <li>正在开展无人机真机空中抓取研究。</li>
+                <li>主导强化学习空中抓取无人机的真机部署，使用 D455 机载感知，以 1.8 m/s 的抓取飞行速度在 10 次试验中成功抓取静止塑料瓶 7 次；构建结合时间对齐、位姿传播与卡尔曼滤波的目标状态估计流程，并通过时间偏移教师监督处理夹爪闭合延迟，实现提前闭爪。</li>
                 <li>论文正在准备中。</li>
             </ul>
             <div class="project-gallery">
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="STAR 无人机空中抓取演示">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/star_uav_aerial_grasping_demo.jpg" aria-label="STAR 无人机空中抓取演示">
                         <source src="videos/star_uav_aerial_grasping_demo.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
-                    </video>
-                </div>
+                    </video><figcaption>无人机空中抓取真机演示片段。</figcaption></figure>
             </div>
         </div>
 
         <!-- project during my internship at Galbot: -->
         <div class="project-item" id="galbot"><h4>机器人学习、基础模型部署与数据筛选 — Galbot</h4><p class="date">2026 年 1–6 月 · 具身智能算法部 · 研究组负责人：He Wang，北京大学助理教授</p><ul>
-<li>调研使用深度信息的 VLA 策略，针对 StereoVLA 审稿反馈选择 DP3；集成 Docker 化的 ROS–Franka 推理系统、ZED 感知和 ZeroMQ 通信，部署 StereoVLA 的 DP3 baseline。</li>
-<li>开发并行 TFDS-to-LeRobot 转换流程，处理 <strong>500 万条完整 SynGrasp-1B 轨迹</strong>，存储由 <strong>20 TB 降至 5 TB（减少 75%）</strong>，<strong>转换成功率为 99.5%</strong>；通过真机部署验证转换数据。</li>
+<li>调研使用深度信息的 VLA 策略，针对 StereoVLA 审稿反馈选择 DP3；集成 Docker 化的 ROS–Franka 推理系统、ZED 感知和 ZeroMQ 通信，为 StereoVLA 提供 baseline 适配与部署支持。</li>
+<li>开发并行 TFDS-to-LeRobot 转换流程，处理 <strong>500 万条输入 SynGrasp-1B 轨迹</strong>，以总轨迹数为分母的<strong>转换成功率为 99.5%</strong>；同一数据集的存储由 <strong>20 TB 降至 5 TB（减少 75%）</strong>。</li>
 <li>恢复用于基础模型真机部署的机器人运动控制系统；分析仿真数据集中的初始位姿以指导真机抓取实验，在<strong>选定初始配置下完成 10/10 次成功抓取</strong>。</li>
 <li>调研机器人学习数据筛选方法，尝试复现基于 CUPID 的叠衣数据筛选，分析任务复杂度和数据集适用性带来的限制。</li>
 </ul>
@@ -832,12 +836,10 @@
                 <div class="project-media">
                     <img src="images/dp3_pic.png" alt="基于 3D Diffusion Policy 的机械臂桌面清理">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="3D Diffusion Policy 真实机器人操作演示">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/dp3_demo.jpg" aria-label="3D Diffusion Policy 真实机器人操作演示">
                         <source src="videos/dp3_demo.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
-                    </video>
-                </div>
+                    </video><figcaption>ARX 机械臂上的 3D Diffusion Policy 操作演示。</figcaption></figure>
             <a href="files/3D_Diffusion_Policy_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">
             项目报告
         </a>
@@ -853,7 +855,9 @@
         <div class="project-item" id="iron-bestie"><h4>模仿学习机械臂操作 · 阶段 2：Iron Bestie</h4><p class="date">2026 年 8 月至今 · 五人黑客松项目</p><ul>
 <li>五人黑客松项目，结合 Agent 编排、语音交互、视觉感知和机械臂技能，用于化妆品整理与个性化辅助。</li>
 <li>负责 NERO 机械臂组装与联网、示教采集、ACT 训练和部署及 MCP–Agent 集成；协调团队分工，并用英语完成主要展示。</li>
-</ul><p><a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer">南华早报采访与报道</a></p></div>
+</ul>
+<div class="project-gallery"><figure class="project-media video-panel"><video controls preload="none" poster="images/posters/iron_bestie_act.jpg" aria-label="ACT 技能真机部署演示。"><source src="videos/iron_bestie_act.mp4" type="video/mp4"></video><figcaption>ACT 技能真机部署演示。</figcaption></figure><figure class="project-media video-panel"><video controls preload="none" poster="images/posters/iron_bestie_full.jpg" aria-label="完整项目演示：语音交互、Agent 编排与机械臂辅助。"><source src="videos/iron_bestie_full.mp4" type="video/mp4"></video><figcaption>完整项目演示：语音交互、Agent 编排与机械臂辅助。</figcaption></figure></div>
+<p><a class="inline-link" href="https://www.scmp.com/tech/tech-trends/article/3363197/coded-glamour-and-glory-ai-make-arm-steals-show-hong-kong-hackathon" target="_blank" rel="noopener noreferrer">南华早报采访与报道</a></p></div>
 <div class="project-item" id="locomotion"><h4>双足与轮足运动控制强化学习</h4><p class="date">2025 年 7 月 – 2026 年 1 月 · LimX Dynamics TRON Camp 与后续实验</p><ul>
 <li>初赛阶段在 Isaac Sim 中训练点足运动策略，并在 MuJoCo 中评估 sim-to-sim 迁移；测试外部扰动下通过不平整地形、斜坡和台阶。</li>
 <li>在后续点足机器人仿真实验中实现方向解耦的奖励项，评估速度跟踪误差及外部推力下的响应。</li>
@@ -863,18 +867,14 @@
                 <div class="project-media">
                     <img src="images/pointfoot_env.png" alt="点足机器人在不同地形上行走">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="点足机器人强化学习运动演示">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/RL_pointfoot.jpg" aria-label="点足机器人强化学习运动演示">
                         <source src="videos/RL_pointfoot.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
-                    </video>
-                </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="轮足机器人爬楼梯演示">
+                    </video><figcaption>点足机器人仿真运动演示。</figcaption></figure>
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/Wheelfoot_stairs.jpg" aria-label="轮足机器人爬楼梯演示">
                         <source src="videos/Wheelfoot_stairs.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
-                    </video>
-                </div>
+                    </video><figcaption>轮足机器人真机台阶攀爬演示。</figcaption></figure>
         <a href="files/RL_Locomotion_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">
             Technical Report
         </a>
@@ -902,12 +902,10 @@
                 <div class="project-media">
                     <img src="images/motion_capture_uav.png" alt="无人机吊挂载荷实验的动作捕捉装置">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="无人机吊挂载荷实验演示">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/UAV_suspension.jpg" aria-label="无人机吊挂载荷实验演示">
                         <source src="videos/UAV suspension.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
-                    </video>
-                </div>
+                    </video><figcaption>无人机吊挂载荷实验片段。</figcaption></figure>
             <a href="https://github.com/24zen0/Modeling-and-Experiment-of-UAV-Heavy-Object-Suspension-System/blob/main/UAV%20Modeling%20and%20Real-World%20Experiments.pdf" target="_blank" rel="noopener noreferrer">
             项目报告
         </a>
@@ -928,12 +926,10 @@
                 <div class="project-media">
                     <img src="images/Intelligent scissors2.png" alt="智能剪刀工具的边界选取结果">
                 </div>
-                <div class="project-media">
-                    <video controls preload="metadata" aria-label="智能剪刀交互演示">
+                <figure class="project-media video-panel"><video controls preload="none" poster="images/posters/Intelligent_Scissors.jpg" aria-label="智能剪刀交互演示">
                         <source src="videos/Intelligent Scissors.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
-                    </video>
-                </div>
+                    </video><figcaption>交互式图像边界选择与界面演示。</figcaption></figure>
             <a href="https://github.com/24zen0/Intelligent_Scissors_for_dsaa/blob/main/CS203B%20Project-Intelligent%20Scissors-2.pdf" target="_blank" rel="noopener noreferrer">
             项目报告
         </a>
@@ -961,7 +957,7 @@
 </main>
 
     <footer>
-        <p>最后更新：2026 年 10 月 25 日 · 本研究主页使用 HTML/CSS 构建，并托管于 GitHub Pages</p>
+        <p>最后更新：2026 年 10 月 26 日 · 本研究主页使用 HTML/CSS 构建，并托管于 GitHub Pages</p>
     </footer>
 </body>
 </html>
